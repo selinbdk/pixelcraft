@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class AppColors {
+abstract class AppColors {
   static const Color buttonColor = Color(0xFF0A84FF);
   static const Color primaryLabel = Color(0xFFFFFFFF);
   static const Color secondaryLabel = Color(0xFFEBEBF5);
   static const Color backgroundColor = Color(0xFF000000);
 }
 
-class AppPadding {
-  static const EdgeInsets onboardingPadding = EdgeInsets.all(0);
-  static const EdgeInsets onboardingMargin = EdgeInsets.only(bottom: 33);
+abstract class AppPadding {
+  static const EdgeInsets onboardingPadding = EdgeInsets.all(24);
+  static const EdgeInsets pagePadding = EdgeInsets.symmetric(vertical: 12, horizontal: 24);
 }
 
-class AppSpacing {
-  static const SizedBox onboardingMessagesSpace = SizedBox(height: 16);
-  static const SizedBox onboardingButtonSpace = SizedBox(height: 64);
+abstract class AppSpacing {
+  static const SizedBox smallVerticalSpace = SizedBox(height: 16);
+  static const SizedBox mediumVerticalSpace = SizedBox(height: 74);
 }
 
 abstract class AppTheme {
-  static final ThemeData theme = ThemeData(fontFamily: 'SfpRegular', textTheme: const TextTheme(bodyLarge: TextStyle(),
-  ),
-  
+  static final ThemeData theme = ThemeData(
+    fontFamily: 'SfpRegular',
+    textTheme: const TextTheme(
+      bodyLarge: TextStyle(),
+    ),
   );
 }
 
