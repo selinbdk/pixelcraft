@@ -1,1 +1,25 @@
-{}
+{
+  "es": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle"
+  ],
+
+  "ja": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle"
+  ],
+
+  "pt": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle"
+  ],
+
+  "tr": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle"
+  ]
+}
