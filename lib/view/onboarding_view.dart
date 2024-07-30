@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pixelcraft/core/components/app_button.dart';
 import 'package:pixelcraft/core/constants/image_constants.dart';
-import 'package:pixelcraft/core/constants/message_constants.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
 
@@ -19,51 +20,51 @@ class OnboardingView extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
-            child: Padding(
-              padding: AppPadding.onboardingPadding,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  //* Messages container
-                  SizedBox(
-                    width: 345,
-                    child: Text(
-                      AppLocalizations.of(context).primaryMessage,
-                      maxLines: 3,
+            child: SafeArea(
+              child: Padding(
+                padding: AppPadding.pagePadding,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    //* Messages container
+                    Text(
+                      AppLocalizations.of(context).onboardingTitleMessage,
                       textAlign: TextAlign.center,
                       style: context.appTextTheme.displayMedium?.copyWith(
-                        color:AppColors.primaryLabel,
+                        color: AppColors.primaryLabel,
                         fontWeight: FontWeight.bold,
-                        fontSize: 37.3,
+                        fontSize: 35.sp,
                       ),
                     ),
-                  ),
 
-                  //* Space between messages
-                  AppSpacing.onboardingMessagesSpace,
+                    //* Space between messages
+                    AppSpacing.smallVerticalSpace,
 
-                  //* Secondary message
-                  SizedBox(
-                    height:44,
-                    width: MediaQuery.of(context).size.width,
-                    child: Text(
-                      AppLocalizations.of(context).secondaryMessage,
+                    //* Secondary message
+                    Text(
+                      AppLocalizations.of(context).onboardingContentMessage,
                       textAlign: TextAlign.center,
-                      style: context.appTextTheme.displayLarge?.copyWith(
+                      style: context.appTextTheme.bodyMedium?.copyWith(
                         color: AppColors.secondaryLabel,
-                        fontSize: 20,
-                      ),
+                        fontSize: 15.sp,
                         
+                      ),
                     ),
-                  ),
 
-                  //* Space between message container and button
-                  AppSpacing.onboardingButtonSpace,
+                    //* Space between message container and button
+                    AppSpacing.mediumVerticalSpace,
 
-                  //* Button
-                  //IconButton(onPressed: (){}, icon:)
-                ],
+                    //* Button
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 60,
+                      child: AppButton(
+                        messages: context.l10n.letsGoButtonTitle,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
