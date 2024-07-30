@@ -30,6 +30,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations: # required for localization
+    sdk: flutter
+  intl: ^0.19.0 # for localization
+  provider: ^6.1.1 # for change locale
+
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -39,24 +44,27 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^3.0.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  #flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true # required for generating localization files
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -74,15 +82,15 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: SfpBold
-      fonts:
-        - asset: assets/fonts/SFPRODISPLAYBOLD.OTF
+  # fonts:
+  #   - family: SfpBold
+  #     fonts:
+  #       - asset: assets/fonts/SFPRODISPLAYBOLD.OTF
         
-  #         style: italic
-    - family: SfpRegular
-      fonts:
-        - asset: assets/fonts/SFPRODISPLAYREGULAR.OTF
+  # #         style: italic
+  #   - family: SfpRegular
+  #     fonts:
+  #       - asset: assets/fonts/SFPRODISPLAYREGULAR.OTF
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
