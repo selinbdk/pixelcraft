@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pixelcraft/core/constants/image_constants.dart';
 import 'package:pixelcraft/core/constants/message_constants.dart';
+import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
 
 class OnboardingView extends StatelessWidget {
@@ -28,11 +29,13 @@ class OnboardingView extends StatelessWidget {
                   SizedBox(
                     width: 345,
                     child: Text(
-                      MessageConstants.onboardingPrimaryMessage,
+                      AppLocalizations.of(context).primaryMessage,
+                      maxLines: 3,
                       textAlign: TextAlign.center,
                       style: context.appTextTheme.displayMedium?.copyWith(
-                        color: AppColors.primaryLabel,
-                        //fontSize: 12,
+                        color:AppColors.primaryLabel,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 37.3,
                       ),
                     ),
                   ),
@@ -41,16 +44,17 @@ class OnboardingView extends StatelessWidget {
                   AppSpacing.onboardingMessagesSpace,
 
                   //* Secondary message
-                  const SizedBox(
-                    height: 44,
-                    width: 345,
+                  SizedBox(
+                    height:44,
+                    width: MediaQuery.of(context).size.width,
                     child: Text(
-                      MessageConstants.onboardingSecondaryMessage,
+                      AppLocalizations.of(context).secondaryMessage,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: context.appTextTheme.displayLarge?.copyWith(
                         color: AppColors.secondaryLabel,
-                        fontSize: 17,
+                        fontSize: 20,
                       ),
+                        
                     ),
                   ),
 
