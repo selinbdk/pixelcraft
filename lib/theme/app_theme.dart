@@ -18,7 +18,10 @@ class AppSpacing {
 }
 
 abstract class AppTheme {
-  static final ThemeData theme = ThemeData(fontFamily: 'SfpBold', textTheme: const TextTheme(bodyLarge: TextStyle()));
+  static final ThemeData theme = ThemeData(fontFamily: 'SfpRegular', textTheme: const TextTheme(bodyLarge: TextStyle(),
+  ),
+  
+  );
 }
 
 extension ThemeX on BuildContext {
