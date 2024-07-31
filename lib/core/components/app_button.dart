@@ -17,6 +17,9 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     if (icon != null) {
       return ElevatedButton.icon(
+        style: const ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll<Color>(AppColors.buttonColor),
+      ),
         onPressed: () {},
         label: Text(
           messages,
