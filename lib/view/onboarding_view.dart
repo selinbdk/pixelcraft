@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
-import 'package:pixelcraft/core/constants/image_constants.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
+import 'package:pixelcraft/gen/assets.gen.dart';
+
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -14,7 +15,7 @@ class OnboardingView extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: <Widget>[
-          Image.asset(ImageConstants.onboardingImagePath),
+          Image.asset(Assets.images.onboardingImage.keyName),
 
           //* General huge container
           SizedBox(
@@ -39,7 +40,7 @@ class OnboardingView extends StatelessWidget {
                     ),
 
                     //* Space between messages
-                    AppSpacing.smallVerticalSpace,
+                    16.vSpace,
 
                     //* Secondary message
                     Text(
@@ -48,12 +49,11 @@ class OnboardingView extends StatelessWidget {
                       style: context.appTextTheme.bodyMedium?.copyWith(
                         color: AppColors.secondaryLabel,
                         fontSize: 15.sp,
-                        
                       ),
                     ),
 
                     //* Space between message container and button
-                    AppSpacing.mediumVerticalSpace,
+                    74.vSpace,
 
                     //* Button
                     SizedBox(
@@ -73,3 +73,4 @@ class OnboardingView extends StatelessWidget {
     );
   }
 }
+
