@@ -12,35 +12,32 @@ import 'package:flutter/widgets.dart';
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/discover_addButton.png
-  AssetGenImage get discoverAddButton =>
-      const AssetGenImage('assets/images/discover_addButton.png');
-
-  /// File path: assets/images/discover_settingsButton.png
-  AssetGenImage get discoverSettingsButton =>
-      const AssetGenImage('assets/images/discover_settingsButton.png');
-
-  /// File path: assets/images/discover_title.png
-  AssetGenImage get discoverTitle =>
-      const AssetGenImage('assets/images/discover_title.png');
-
   /// File path: assets/images/onboarding_image.png
   AssetGenImage get onboardingImage =>
       const AssetGenImage('assets/images/onboarding_image.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        discoverAddButton,
-        discoverSettingsButton,
-        discoverTitle,
-        onboardingImage
-      ];
+  List<AssetGenImage> get values => [onboardingImage];
+}
+
+class $AssetsSvgGen {
+  const $AssetsSvgGen();
+
+  /// File path: assets/svg/add_button.svg
+  String get addButton => 'assets/svg/add_button.svg';
+
+  /// File path: assets/svg/settings_button.svg
+  String get settingsButton => 'assets/svg/settings_button.svg';
+
+  /// List of all assets
+  List<String> get values => [addButton, settingsButton];
 }
 
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsSvgGen svg = $AssetsSvgGen();
 }
 
 class AssetGenImage {

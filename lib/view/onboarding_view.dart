@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
+import 'package:pixelcraft/gen/assets.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
-import 'package:pixelcraft/gen/assets.gen.dart';
-
 
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
@@ -26,7 +25,6 @@ class OnboardingView extends StatelessWidget {
                 padding: AppPadding.pagePadding,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     //* Messages container
                     Text(
@@ -73,4 +71,3 @@ class OnboardingView extends StatelessWidget {
     );
   }
 }
-
