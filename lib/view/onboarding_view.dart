@@ -11,58 +11,51 @@ class OnboardingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: <Widget>[
           Assets.images.onboardingImage.image(),
 
           //* General huge container
-          SizedBox(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+          Padding(
+            padding: AppPadding.pagePadding,
             child: SafeArea(
-              child: Padding(
-                padding: AppPadding.pagePadding,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    //* Messages container
-                    Text(
-                      AppLocalizations.of(context).onboardingTitleMessage,
-                      textAlign: TextAlign.center,
-                      style: context.appTextTheme.displayMedium?.copyWith(
-                        color: AppColors.primaryLabel,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 35.sp,
-                      ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  //* Messages container
+                  Text(
+                    AppLocalizations.of(context).onboardingTitleMessage,
+                    textAlign: TextAlign.center,
+                    style: context.appTextTheme.displayMedium?.copyWith(
+                      color: AppColors.primaryLabel,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35.sp,
                     ),
+                  ),
 
-                    //* Space between messages
-                    16.vSpace,
+                  //* Space between messages
+                  16.verticalSpace,
 
-                    //* Secondary message
-                    Text(
-                      AppLocalizations.of(context).onboardingContentMessage,
-                      textAlign: TextAlign.center,
-                      style: context.appTextTheme.bodyMedium?.copyWith(
-                        color: AppColors.secondaryLabel,
-                        fontSize: 15.sp,
-                      ),
+                  //* Secondary message
+                  Text(
+                    AppLocalizations.of(context).onboardingContentMessage,
+                    textAlign: TextAlign.center,
+                    style: context.appTextTheme.bodyMedium?.copyWith(
+                      color: AppColors.secondaryLabel,
+                      fontSize: 15.sp,
                     ),
+                  ),
 
-                    //* Space between message container and button
-                    74.vSpace,
+                  //* Space between message container and button
+                  75.verticalSpace,
 
-                    //* Button
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 60,
-                      child: AppButton(
-                        messages: context.l10n.letsGoButtonTitle,
-                      ),
-                    ),
-                  ],
-                ),
+                  //* Button
+                  AppButton(
+                    backgroundColor: AppColors.primaryBlue,
+                    foregroundColor: AppColors.primaryLabel,
+                    messages: context.l10n.letsGoButtonTitle,
+                  ),
+                ],
               ),
             ),
           ),

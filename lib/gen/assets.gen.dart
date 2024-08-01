@@ -18,12 +18,28 @@ class $AssetsIconsGen {
   /// File path: assets/icons/add_icon.svg
   SvgGenImage get addIcon => const SvgGenImage('assets/icons/add_icon.svg');
 
+  /// File path: assets/icons/bookmark.svg
+  SvgGenImage get bookmark => const SvgGenImage('assets/icons/bookmark.svg');
+
+  /// File path: assets/icons/cancel.svg
+  SvgGenImage get cancel => const SvgGenImage('assets/icons/cancel.svg');
+
   /// File path: assets/icons/settings_icon.svg
   SvgGenImage get settingsIcon =>
       const SvgGenImage('assets/icons/settings_icon.svg');
 
+  /// File path: assets/icons/share.svg
+  SvgGenImage get share => const SvgGenImage('assets/icons/share.svg');
+
+  /// File path: assets/icons/wand.svg
+  SvgGenImage get wand => const SvgGenImage('assets/icons/wand.svg');
+
+  /// File path: assets/icons/wand_icon.svg
+  SvgGenImage get wandIcon => const SvgGenImage('assets/icons/wand_icon.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [addIcon, settingsIcon];
+  List<SvgGenImage> get values =>
+      [addIcon, bookmark, cancel, settingsIcon, share, wand, wandIcon];
 }
 
 class $AssetsImagesGen {

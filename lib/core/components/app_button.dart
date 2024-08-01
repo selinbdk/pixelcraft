@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pixelcraft/theme/app_theme.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
     required this.messages,
+    required this.backgroundColor,
+    required this.foregroundColor,
     super.key,
     this.icon,
     this.iconAlignment = IconAlignment.start,
@@ -12,37 +14,36 @@ class AppButton extends StatelessWidget {
   final String messages;
   final Widget? icon;
   final IconAlignment iconAlignment;
+  final Color? backgroundColor;
+  final Color? foregroundColor;
 
   @override
   Widget build(BuildContext context) {
+    final style = ElevatedButton.styleFrom(
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      fixedSize: Size(1.sw, 42.dm),
+      textStyle: const TextStyle(
+        fontWeight: FontWeight.bold,
+      ),
+    );
+
     if (icon != null) {
       return ElevatedButton.icon(
-        style: const ButtonStyle(
-          backgroundColor: WidgetStatePropertyAll<Color>(AppColors.buttonColor),
-        ),
         onPressed: () {},
+        style: style,
         label: Text(
           messages,
-          style: const TextStyle(
-            color: AppColors.primaryLabel,
-            fontWeight: FontWeight.bold,
-          ),
         ),
         icon: icon,
       );
     }
 
     return ElevatedButton(
-      style: const ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll<Color>(AppColors.buttonColor),
-      ),
+      style: style,
       onPressed: () {},
       child: Text(
         messages,
-        style: const TextStyle(
-          color: AppColors.primaryLabel,
-          fontWeight: FontWeight.bold,
-        ),
       ),
     );
   }
