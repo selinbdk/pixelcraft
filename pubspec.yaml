@@ -41,3 +41,7 @@ flutter_gen:
 
   integrations:
     flutter_svg: true
+  
+  colors:
+    inputs:
+      - assets/color/colors.xml

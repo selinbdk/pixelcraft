@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/core/components/app_icons.dart';
 import 'package:pixelcraft/gen/assets.gen.dart';
+import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
 
@@ -18,7 +19,7 @@ class DiscoverView extends StatelessWidget {
         title: Text(
           AppLocalizations.of(context).discoverTitleMessage,
           style: context.appTextTheme.displayMedium?.copyWith(
-            color: AppColors.primaryLabel,
+            color: ColorName.primaryLabel,
             fontWeight: FontWeight.bold,
             fontSize: 17.sp,
           ),

@@ -1,13 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pixelcraft/gen/colors.gen.dart';
 
-abstract class AppColors {
-  static const Color primaryBlue = Color(0xFF0A84FF);
-  static const Color primaryLabel = Color(0xFFFFFFFF);
-  static const Color secondaryLabel = Color(0xFFEBEBF5);
-  static const Color primaryBackgroundColor = Color(0xFF000000);
-  static const Color secondaryBackgroundColor = Color(0xFF1C1C1E);
-}
+
 
 abstract class AppPadding {
   static const EdgeInsets onboardingPadding = EdgeInsets.all(24);
@@ -26,9 +21,9 @@ extension SizedBoxExtension on num {
 abstract class AppTheme {
   static final ThemeData theme = ThemeData(
     fontFamily: 'SfpRegular',
-    scaffoldBackgroundColor: AppColors.primaryBackgroundColor,
+    scaffoldBackgroundColor: ColorName.primaryBackground,
     appBarTheme: const AppBarTheme(
-      backgroundColor: AppColors.primaryBackgroundColor,
+      backgroundColor: ColorName.primaryBackground,
     ),
     textTheme: const TextTheme(),
   );
