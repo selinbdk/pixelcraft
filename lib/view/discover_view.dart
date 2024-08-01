@@ -13,6 +13,8 @@ class DiscoverView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        leading: AppIcons(icon:Assets.icons.settings.svg(),
+        ),
         title: Text(
           AppLocalizations.of(context).discoverTitleMessage,
           style: context.appTextTheme.displayMedium?.copyWith(
@@ -23,7 +25,7 @@ class DiscoverView extends StatelessWidget {
         ),
         actions: [
           AppIcons(
-            icon: Assets.icons.addIcon.svg(),
+            icon: Assets.icons.add.svg(),
           ),
         ],
       ),
