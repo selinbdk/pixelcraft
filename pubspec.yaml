@@ -1,8 +1,6 @@
 name: pixelcraft
 description: "A new Flutter project."
-
 publish_to: "none"
-
 version: 1.0.0+1
 
 environment:
@@ -12,7 +10,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   flutter:
     sdk: flutter
-
   flutter_localizations:
     sdk: flutter
   flutter_screenutil: ^5.9.3
@@ -21,19 +18,24 @@ dependencies:
   very_good_analysis: ^6.0.0
 
 dev_dependencies:
-  build_runner:
-  flutter_gen_runner:
+  build_runner: ^2.4.11
+  flutter_gen_runner: ^5.6.0
   flutter_lints: ^3.0.1
   flutter_test:
     sdk: flutter
 
+flutter:
+  uses-material-design: true
+  generate: true
+  assets:
+  - assets/images/
+  - assets/icons/
+
 flutter_gen:
+  output: lib/gen/
+  inputs:
+  - assets/images/
+  - assets/icons/
 
   integrations:
     flutter_svg: true
-
-flutter:
-  generate: true
-  uses-material-design: true
-  assets:
-    - assets/
