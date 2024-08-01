@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
@@ -6,6 +7,7 @@ import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
 
+@RoutePage()
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
 

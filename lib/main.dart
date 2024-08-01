@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pixelcraft/router/app_router.dart';
 import 'package:pixelcraft/theme/app_theme.dart';
-import 'package:pixelcraft/view/discover_view.dart';
-import 'package:pixelcraft/view/onboarding_view.dart';
 
 void main() {
   runApp(
@@ -16,16 +15,23 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    //  MaterialApp.router
-    return MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+
+      ///
+      ///* Localization Config
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+
+      ///
+      ///* Theme
       theme: AppTheme.theme,
-      home: const DiscoverView(),
+
+      ///
+      ///* Route Config
+      routerConfig: appRouter.config(),
     );
   }
 }
