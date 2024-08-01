@@ -3,8 +3,8 @@ import 'package:pixelcraft/theme/app_theme.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
-    super.key,
     required this.messages,
+    super.key,
     this.icon,
     this.iconAlignment = IconAlignment.start,
   });
@@ -18,8 +18,8 @@ class AppButton extends StatelessWidget {
     if (icon != null) {
       return ElevatedButton.icon(
         style: const ButtonStyle(
-        backgroundColor: WidgetStatePropertyAll<Color>(AppColors.buttonColor),
-      ),
+          backgroundColor: WidgetStatePropertyAll<Color>(AppColors.buttonColor),
+        ),
         onPressed: () {},
         label: Text(
           messages,

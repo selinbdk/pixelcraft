@@ -14,7 +14,7 @@ class OnboardingView extends StatelessWidget {
       backgroundColor: AppColors.backgroundColor,
       body: Stack(
         children: <Widget>[
-          Image.asset(Assets.images.onboardingImage.keyName),
+          Assets.images.onboardingImage.image(),
 
           //* General huge container
           SizedBox(
