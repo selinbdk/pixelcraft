@@ -15,18 +15,17 @@ import 'package:vector_graphics/vector_graphics.dart';
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
-  /// File path: assets/icons/add_icon.svg
-  SvgGenImage get addIcon => const SvgGenImage('assets/icons/add_icon.svg');
+  /// File path: assets/icons/add.svg
+  SvgGenImage get add => const SvgGenImage('assets/icons/add.svg');
 
   /// File path: assets/icons/bookmark.svg
   SvgGenImage get bookmark => const SvgGenImage('assets/icons/bookmark.svg');
 
-  /// File path: assets/icons/cancel.svg
-  SvgGenImage get cancel => const SvgGenImage('assets/icons/cancel.svg');
+  /// File path: assets/icons/close.svg
+  SvgGenImage get close => const SvgGenImage('assets/icons/close.svg');
 
-  /// File path: assets/icons/settings_icon.svg
-  SvgGenImage get settingsIcon =>
-      const SvgGenImage('assets/icons/settings_icon.svg');
+  /// File path: assets/icons/settings.svg
+  SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
 
   /// File path: assets/icons/share.svg
   SvgGenImage get share => const SvgGenImage('assets/icons/share.svg');
@@ -34,12 +33,8 @@ class $AssetsIconsGen {
   /// File path: assets/icons/wand.svg
   SvgGenImage get wand => const SvgGenImage('assets/icons/wand.svg');
 
-  /// File path: assets/icons/wand_icon.svg
-  SvgGenImage get wandIcon => const SvgGenImage('assets/icons/wand_icon.svg');
-
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [addIcon, bookmark, cancel, settingsIcon, share, wand, wandIcon];
+  List<SvgGenImage> get values => [add, bookmark, close, settings, share, wand];
 }
 
 class $AssetsImagesGen {
