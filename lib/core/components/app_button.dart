@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pixelcraft/router/app_router.dart';
+import 'package:pixelcraft/config/router/app_router.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
@@ -25,8 +25,9 @@ class AppButton extends StatelessWidget {
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
       fixedSize: Size(1.sw, 42.dm),
-      textStyle: const TextStyle(
+      textStyle: TextStyle(
         fontWeight: FontWeight.bold,
+        fontSize: 15.sp,
       ),
     );
 
