@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pixelcraft/router/app_router.dart';
-import 'package:pixelcraft/theme/app_theme.dart';
+import 'package:pixelcraft/config/router/app_router.dart';
+import 'package:pixelcraft/core/theme/app_theme.dart';
 
 void main() {
   runApp(
@@ -19,6 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
+
+      builder: (context, child) {
+        return MediaQuery.withClampedTextScaling(
+          maxScaleFactor: 1,
+          child: child!,
+        );
+      },
 
       ///
       ///* Localization Config
