@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
 import 'package:pixelcraft/config/gen/colors.gen.dart';
+import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/l10n/l10.dart';
@@ -55,6 +56,9 @@ class OnboardingView extends StatelessWidget {
 
                   //* Button
                   AppButton(
+                    onPressed: () {
+                      context.pushRoute(const DiscoverRoute());
+                    },
                     backgroundColor: ColorName.primaryBlue,
                     foregroundColor: ColorName.primaryLabel,
                     messages: context.l10n.letsGoButtonTitle,

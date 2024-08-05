@@ -5,6 +5,7 @@ import 'package:pixelcraft/config/router/app_router.dart';
 
 class AppButton extends StatelessWidget {
   const AppButton({
+    required this.onPressed,
     required this.messages,
     required this.backgroundColor,
     required this.foregroundColor,
@@ -18,6 +19,7 @@ class AppButton extends StatelessWidget {
   final IconAlignment iconAlignment;
   final Color? backgroundColor;
   final Color? foregroundColor;
+  final void Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +46,7 @@ class AppButton extends StatelessWidget {
 
     return ElevatedButton(
       style: style,
-      onPressed: () {
-        context.replaceRoute(const DiscoverRoute());
-      },
+      onPressed: onPressed,
       child: Text(
         messages,
       ),
