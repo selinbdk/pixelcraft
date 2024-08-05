@@ -3,27 +3,51 @@
     "onboardingTitleMessage",
     "onboardingContentMessage",
     "letsGoButtonTitle",
-    "discoverTitleMessage"
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle"
   ],
 
   "ja": [
     "onboardingTitleMessage",
     "onboardingContentMessage",
     "letsGoButtonTitle",
-    "discoverTitleMessage"
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle"
   ],
 
   "pt": [
     "onboardingTitleMessage",
     "onboardingContentMessage",
     "letsGoButtonTitle",
-    "discoverTitleMessage"
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle"
   ],
 
   "tr": [
     "onboardingTitleMessage",
     "onboardingContentMessage",
     "letsGoButtonTitle",
-    "discoverTitleMessage"
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle"
   ]
 }

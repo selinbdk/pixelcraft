@@ -3,5 +3,13 @@
   "onboardingTitleMessage": "Generate anything what's in your mind now",
   "onboardingContentMessage": "An AI that developed to help you generate what's in your mind into beautiful visual",  
   "letsGoButtonTitle": "Let's Go!",
-  "discoverTitleMessage": "Discover"
+  "discoverTitleMessage": "Discover",
+  "promptTitle": "Prompt",
+  "promptContentMessage": "Type your imagination and let the [App] visualize it.",
+  "generateButtonTitle": "Generate",
+  "resultTitle": "Image Name",
+  "regenerateButtonTitle": "Re-Generate",
+  "downloadButtonTitle": "Download"
+
+
 }
