@@ -48,11 +48,16 @@ class DiscoverView extends StatelessWidget {
             icon: Assets.icons.add.svg(),
             onPressed: () async {
               await showModalBottomSheet<void>(
+                isScrollControlled: true,
                 backgroundColor: Colors.transparent,
                 barrierColor: Colors.transparent,
                 clipBehavior: Clip.hardEdge,
+                useSafeArea: true,
                 context: context,
-                builder: (context) => const _SlidingPanel(),
+                builder: (context) => SizedBox(
+                  height: 0.75.sh,
+                  child: const _SlidingPanel(),
+                ),
               );
             },
           ),

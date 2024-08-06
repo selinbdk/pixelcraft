@@ -18,7 +18,6 @@ class _SlidingPanel extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //////
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -40,9 +39,6 @@ class _SlidingPanel extends StatelessWidget {
                 ),
               ],
             ),
-            /////
-            ///
-            ///
             DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(.6),
