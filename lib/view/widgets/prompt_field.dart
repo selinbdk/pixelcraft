@@ -20,13 +20,13 @@ class PromptField extends StatelessWidget {
         fillColor: ColorName.primaryBackground,
         contentPadding: const EdgeInsets.all(24),
         focusedBorder: OutlineInputBorder(
-          borderSide:  BorderSide(
+          borderSide: BorderSide(
             color: ColorName.promptBorder.withOpacity(0.36),
           ),
           borderRadius: BorderRadius.circular(25),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide:  BorderSide(
+          borderSide: BorderSide(
             color: ColorName.promptBorder.withOpacity(0.36),
           ),
           borderRadius: BorderRadius.circular(25),

@@ -12,7 +12,8 @@ class _DialogField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(AppLocalizations.of(context).successDialogTitle,
+      title: Text(
+        AppLocalizations.of(context).successDialogTitle,
         style: TextStyle(
           color: ColorName.primaryLabel,
           fontWeight: FontWeight.bold,
