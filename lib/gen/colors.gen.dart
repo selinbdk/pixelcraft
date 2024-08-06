@@ -22,6 +22,9 @@ class ColorName {
   /// Color: #FFFFFF
   static const Color primaryLabel = Color(0xFFFFFFFF);
 
+  /// Color: #5454585C
+  static const Color promptBorder = Color(0x5454585C);
+
   /// Color: #1C1C1E
   static const Color secondaryBackground = Color(0xFF1C1C1E);
 
