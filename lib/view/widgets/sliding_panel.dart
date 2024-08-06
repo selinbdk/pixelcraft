@@ -5,83 +5,63 @@ class _SlidingPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      //width: MediaQuery.of(context).size.width,
-      //height: MediaQuery.of(context).size.height /2,
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(30),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 4,
-                sigmaY: 4,
+    return BackdropFilter(
+      filter: ImageFilter.blur(
+        sigmaX: 4,
+        sigmaY: 4,
+      ),
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+        decoration: BoxDecoration(
+          color: Colors.black.withOpacity(.6),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            //////
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Spacer(),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).promptTitle,
+                    style: context.appTextTheme.displayMedium?.copyWith(
+                      color: ColorName.primaryLabel,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17.sp,
+                    ),
+                  ),
+                ),
+                const Spacer(),
+                AppIconButton(
+                  icon: Assets.icons.close.svg(),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            ),
+            /////
+            ///
+            ///
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(.6),
+                borderRadius: BorderRadius.circular(30),
               ),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 3 / 5,
-                decoration: BoxDecoration(
-                  color: Colors.grey.shade900.withOpacity(0.4),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Center(
-                          child: Text(
-                            AppLocalizations.of(context).promptTitle,
-                            style: context.appTextTheme.displayMedium?.copyWith(
-                              color: ColorName.primaryLabel,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 17.sp,
-                            ),
-                          ),
-                        ),
-                        115.horizontalSpace,
-                        AppIconButton(
-                          icon: Assets.icons.close.svg(),
-                          onPressed: () => Navigator.pop(context),
-                        ),
-                      ],
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(
-                          sigmaX: 5,
-                          sigmaY: 5,
-                        ),
-                        child: Container(
-                          margin: const EdgeInsets.fromLTRB(24, 12, 24, 12),
-                          decoration: BoxDecoration(
-                            color: ColorName.primaryBackground.withOpacity(0.5),
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          child: const PromptField(),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(24),
-                      child: SizedBox(
-                        height: 64,
-                        child: AppButton(
-                          onPressed: () {},
-                          backgroundColor: ColorName.primaryBlue,
-                          foregroundColor: ColorName.primaryLabel,
-                          messages: context.l10n.generateButtonTitle,
-                          icon: Assets.icons.wand.svg(),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              child: const PromptField(),
+            ),
+            SizedBox(
+              height: 64,
+              child: AppButton(
+                onPressed: () {},
+                backgroundColor: ColorName.primaryBlue,
+                foregroundColor: ColorName.primaryLabel,
+                messages: context.l10n.generateButtonTitle,
+                icon: Assets.icons.wand.svg(),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

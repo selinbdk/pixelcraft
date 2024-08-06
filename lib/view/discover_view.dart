@@ -4,15 +4,17 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
+//import 'package:pixelcraft/config/gen/colors.gen.dart';
 import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
 import 'package:pixelcraft/core/components/app_icon_button.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/widgets/text_box_widget.dart';
+import 'package:pixelcraft/view/widgets/prompt_field.dart';
 
-part 'widgets/bottom_sheet.dart';
+part 'widgets/sliding_panel.dart';
+
 // https://picsum.photos/500/500/
 @RoutePage()
 class DiscoverView extends StatelessWidget {
@@ -40,11 +42,20 @@ class DiscoverView extends StatelessWidget {
             icon: Assets.icons.add.svg(),
             onPressed: () async {
               await showModalBottomSheet<void>(
+                backgroundColor: Colors.transparent,
+                barrierColor: Colors.transparent,
+                clipBehavior: Clip.hardEdge,
                 context: context,
-                builder: (context) => const _BottomSheet(),
+                builder: (context) => const _SlidingPanel(),
               );
             },
           ),
+        ],
+      ),
+      body: Column(
+        children: [
+          Image.network('https://picsum.photos/500/500/'),
+          Image.network('https://picsum.photos/500/500/'),
         ],
       ),
     );
