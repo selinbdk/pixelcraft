@@ -10,7 +10,7 @@ extension SizedBoxExtension on num {
   SizedBox get vSpace => SizedBox(
         height: ScreenUtil().setHeight(this),
       );
-  SizedBox get  hSpace => SizedBox(
+  SizedBox get hSpace => SizedBox(
         width: ScreenUtil().setWidth(this),
       );
 }
