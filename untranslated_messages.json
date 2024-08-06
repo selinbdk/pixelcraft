@@ -1,0 +1,65 @@
+{
+  "es": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle",
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
+  ],
+
+  "ja": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle",
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
+  ],
+
+  "pt": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle",
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
+  ],
+
+  "tr": [
+    "onboardingTitleMessage",
+    "onboardingContentMessage",
+    "letsGoButtonTitle",
+    "discoverTitleMessage",
+    "promptTitle",
+    "promptContentMessage",
+    "generateButtonTitle",
+    "resultTitle",
+    "regenerateButtonTitle",
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
+  ]
+}
