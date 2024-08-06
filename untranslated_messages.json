@@ -9,7 +9,10 @@
     "generateButtonTitle",
     "resultTitle",
     "regenerateButtonTitle",
-    "downloadButtonTitle"
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
   ],
 
   "ja": [
@@ -22,7 +25,10 @@
     "generateButtonTitle",
     "resultTitle",
     "regenerateButtonTitle",
-    "downloadButtonTitle"
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
   ],
 
   "pt": [
@@ -35,7 +41,10 @@
     "generateButtonTitle",
     "resultTitle",
     "regenerateButtonTitle",
-    "downloadButtonTitle"
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
   ],
 
   "tr": [
@@ -48,6 +57,9 @@
     "generateButtonTitle",
     "resultTitle",
     "regenerateButtonTitle",
-    "downloadButtonTitle"
+    "downloadButtonTitle",
+    "successDialogTitle",
+    "successDialogContent",
+    "showButtonTitle"
   ]
 }

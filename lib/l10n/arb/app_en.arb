@@ -9,7 +9,10 @@
   "generateButtonTitle": "Generate",
   "resultTitle": "Image Name",
   "regenerateButtonTitle": "Re-Generate",
-  "downloadButtonTitle": "Download"
+  "downloadButtonTitle": "Download",
+  "successDialogTitle": "Image successfully generated",
+  "successDialogContent": "Do you want to see?",
+  "showButtonTitle": "Show me!"
 
 
 }
