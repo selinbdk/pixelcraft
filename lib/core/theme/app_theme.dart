@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/colors.gen.dart';
 
 abstract class AppPadding {
-  static final EdgeInsets pagePadding = const EdgeInsets.symmetric(vertical: 12, horizontal: 24).dm;
+  static final EdgeInsets pagePadding =
+      const EdgeInsets.symmetric(vertical: 12, horizontal: 24).dm;
 }
 
 extension SizedBoxExtension on num {
