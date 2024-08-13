@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
@@ -15,7 +14,6 @@ import 'package:pixelcraft/view/widgets/prompt_field.dart';
 part 'widgets/dialog_field.dart';
 part 'widgets/sliding_panel.dart';
 
-// https://picsum.photos/500/500/
 @RoutePage()
 class DiscoverView extends StatelessWidget {
   const DiscoverView({super.key});
@@ -55,7 +53,7 @@ class DiscoverView extends StatelessWidget {
                 useSafeArea: true,
                 context: context,
                 builder: (context) => SizedBox(
-                  height: 0.75.sh,
+                  height: 0.55.sh,
                   child: const _SlidingPanel(),
                 ),
               );
@@ -63,7 +61,17 @@ class DiscoverView extends StatelessWidget {
           ),
         ],
       ),
-      body: const Column(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Image.network('https://picsum.photos/500/500/'),
+            Image.network('https://picsum.photos/500/500/'),
+            Image.network('https://picsum.photos/500/500/'),
+            Image.network('https://picsum.photos/500/500/'),
+            Image.network('https://picsum.photos/500/500/'),
+          ],
+        ),
+      ),
     );
   }
 }

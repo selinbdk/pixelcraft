@@ -11,7 +11,7 @@ class _SlidingPanel extends StatelessWidget {
         sigmaY: 4,
       ),
       child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+        padding: AppPadding.pagePadding / 1.5,
         decoration: BoxDecoration(
           color: Colors.black.withOpacity(.6),
         ),
@@ -46,24 +46,25 @@ class _SlidingPanel extends StatelessWidget {
               ),
               child: const PromptField(),
             ),
-            SizedBox(
-              height: 64,
-              child: AppButton(
-                onPressed: () async {
-                  log('message');
-                  await showDialog<void>(
-                    context: context,
-                    builder: (context) => _DialogField(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  );
-                },
-                backgroundColor: ColorName.primaryBlue,
-                foregroundColor: ColorName.primaryLabel,
-                messages: context.l10n.generateButtonTitle,
-                icon: Assets.icons.wand.svg(),
+            SafeArea(
+              child: SizedBox(
+                height: 64,
+                child: AppButton(
+                  onPressed: () async {
+                    await showDialog<void>(
+                      context: context,
+                      builder: (context) => _DialogField(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    );
+                  },
+                  backgroundColor: ColorName.primaryBlue,
+                  foregroundColor: ColorName.primaryLabel,
+                  messages: context.l10n.generateButtonTitle,
+                  icon: Assets.icons.wand.svg(),
+                ),
               ),
             ),
           ],
