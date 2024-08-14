@@ -1,7 +1,9 @@
 part of '../../view/discover_view.dart';
 
 class _SlidingPanel extends StatelessWidget {
-  const _SlidingPanel();
+  _SlidingPanel();
+
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,23 +41,29 @@ class _SlidingPanel extends StatelessWidget {
                 ),
               ],
             ),
+            const Spacer(),
             DecoratedBox(
               decoration: BoxDecoration(
                 color: Colors.black.withOpacity(.6),
                 borderRadius: BorderRadius.circular(30),
               ),
-              child: const PromptField(),
+              child: PromptTextField(
+                controller: controller,
+                onChanged: (value) => controller.text = value,
+              ),
+            ),
+            const Spacer(
+              flex: 4,
             ),
             SizedBox(
               height: 64,
               child: AppButton(
                 onPressed: () async {
-                  log('message');
                   await showDialog<void>(
                     context: context,
                     builder: (context) => _DialogField(
                       onPressed: () {
-                        Navigator.pop(context);
+                        context.pushRoute(ResultRoute(controller: controller));
                       },
                     ),
                   );
@@ -65,6 +73,9 @@ class _SlidingPanel extends StatelessWidget {
                 messages: context.l10n.generateButtonTitle,
                 icon: Assets.icons.wand.svg(),
               ),
+            ),
+            const Spacer(
+              flex: 5,
             ),
           ],
         ),
