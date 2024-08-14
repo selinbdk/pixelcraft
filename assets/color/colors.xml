@@ -5,6 +5,7 @@
     <color name="primary_background">#000000</color>
     <color name="secondary_background">#1C1C1E</color>
     <color name="prompt_border">#5454585C</color>
+    <color name="result_border">#38383A</color>
 </resources>
 
 
