@@ -3,6 +3,7 @@ import 'package:pixelcraft/core/models/response/image_response_model.dart';
 
 part 'generate_response_model.g.dart';
 
+
 @JsonSerializable()
 class GenerateResponseModel {
   GenerateResponseModel({

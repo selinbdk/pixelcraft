@@ -1,16 +1,16 @@
-import 'dart:developer';
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
+import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/components/app_button.dart';
 import 'package:pixelcraft/core/components/app_icon_button.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/widgets/prompt_field.dart';
+import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
 part 'widgets/dialog_field.dart';
 part 'widgets/sliding_panel.dart';
@@ -19,6 +19,7 @@ part 'widgets/sliding_panel.dart';
 @RoutePage()
 class DiscoverView extends StatelessWidget {
   const DiscoverView({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +56,19 @@ class DiscoverView extends StatelessWidget {
                 useSafeArea: true,
                 context: context,
                 builder: (context) => SizedBox(
-                  height: 0.75.sh,
-                  child: const _SlidingPanel(),
+                  height: 0.60.sh,
+                  child: _SlidingPanel(),
                 ),
               );
             },
           ),
         ],
       ),
-      body: const Column(),
+      body: Column(
+        children: [
+          Image.network('https://picsum.photos/500/500/'),
+        ],
+      ),
     );
   }
 }

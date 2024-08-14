@@ -25,6 +25,9 @@ class ColorName {
   /// Color: #5454585C
   static const Color promptBorder = Color(0x5454585C);
 
+  /// Color: #38383A
+  static const Color resultBorder = Color(0xFF38383A);
+
   /// Color: #1C1C1E
   static const Color secondaryBackground = Color(0xFF1C1C1E);
 
