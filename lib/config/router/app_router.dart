@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 import 'package:pixelcraft/view/discover_view.dart';
 import 'package:pixelcraft/view/onboarding_view.dart';
-
+import 'package:pixelcraft/view/result_view.dart';
 part 'app_router.gr.dart';
 
 final appRouter = AppRouter();
@@ -20,5 +21,12 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           page: DiscoverRoute.page,
         ),
+
+        AutoRoute(
+          page: ResultRoute.page,
+        ),
+
+
+        
       ];
 }
