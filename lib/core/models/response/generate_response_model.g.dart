@@ -9,13 +9,11 @@ part of 'generate_response_model.dart';
 GenerateResponseModel _$GenerateResponseModelFromJson(
         Map<String, dynamic> json) =>
     GenerateResponseModel(
-      artifacts: (json['artifacts'] as List<dynamic>?)
-          ?.map((e) => ImageResponseModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      id: (json['id'] as num?)?.toInt() ?? 0,
     );
 
 Map<String, dynamic> _$GenerateResponseModelToJson(
         GenerateResponseModel instance) =>
     <String, dynamic>{
-      'artifacts': instance.artifacts,
+      'id': instance.id,
     };
