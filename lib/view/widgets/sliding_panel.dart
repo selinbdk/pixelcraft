@@ -4,6 +4,7 @@ class _SlidingPanel extends StatelessWidget {
   _SlidingPanel();
 
   final controller = TextEditingController();
+  final bool isDisabled = false;
 
   @override
   Widget build(BuildContext context) {
@@ -59,10 +60,14 @@ class _SlidingPanel extends StatelessWidget {
               height: 64,
               child: AppButton(
                 onPressed: () async {
+                  if (controller.text == '') {
+                    return;
+                  }
                   await showDialog<void>(
                     context: context,
                     builder: (context) => _DialogField(
                       onPressed: () {
+                        Navigator.pop(context);
                         context.pushRoute(ResultRoute(controller: controller));
                       },
                     ),
