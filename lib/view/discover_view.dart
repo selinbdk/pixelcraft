@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
 import 'package:pixelcraft/config/router/app_router.dart';
-import 'package:pixelcraft/core/components/app_button.dart';
-import 'package:pixelcraft/core/components/app_icon_button.dart';
+import 'package:pixelcraft/core/components/buttons/app_button.dart';
+import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
@@ -21,50 +21,48 @@ class DiscoverView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: AppIconButton(
-          icon: Assets.icons.settings.svg(),
-          onPressed: () => showDialog<void>(
-            context: context,
-            builder: (context) => _DialogField(
-              onPressed: () {},
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          centerTitle: true,
+          leading: AppIconButton(
+            icon: Assets.icons.settings.svg(),
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: Text(
+            AppLocalizations.of(context).discoverTitleMessage,
+            style: context.appTextTheme.displayMedium?.copyWith(
+              color: ColorName.primaryLabel,
+              fontWeight: FontWeight.bold,
+              fontSize: 17.sp,
             ),
           ),
+          actions: [
+            AppIconButton(
+              icon: Assets.icons.add.svg(),
+              onPressed: () async {
+                await showModalBottomSheet<void>(
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  barrierColor: Colors.transparent,
+                  clipBehavior: Clip.hardEdge,
+                  useSafeArea: true,
+                  context: context,
+                  builder: (context) => SizedBox(
+                    height: 0.60.sh,
+                    child: _SlidingPanel(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
-        title: Text(
-          AppLocalizations.of(context).discoverTitleMessage,
-          style: context.appTextTheme.displayMedium?.copyWith(
-            color: ColorName.primaryLabel,
-            fontWeight: FontWeight.bold,
-            fontSize: 17.sp,
-          ),
+        body: Column(
+          children: [
+            Image.network('https://picsum.photos/500/500/'),
+          ],
         ),
-        actions: [
-          AppIconButton(
-            icon: Assets.icons.add.svg(),
-            onPressed: () async {
-              await showModalBottomSheet<void>(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                barrierColor: Colors.transparent,
-                clipBehavior: Clip.hardEdge,
-                useSafeArea: true,
-                context: context,
-                builder: (context) => SizedBox(
-                  height: 0.60.sh,
-                  child: _SlidingPanel(),
-                ),
-              );
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Image.network('https://picsum.photos/500/500/'),
-        ],
       ),
     );
   }
