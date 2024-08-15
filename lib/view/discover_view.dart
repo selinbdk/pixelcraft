@@ -15,11 +15,9 @@ import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 part 'widgets/dialog_field.dart';
 part 'widgets/sliding_panel.dart';
 
-// https://picsum.photos/500/500/
 @RoutePage()
 class DiscoverView extends StatelessWidget {
   const DiscoverView({super.key});
-
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +32,6 @@ class DiscoverView extends StatelessWidget {
               onPressed: () {},
             ),
           ),
-          //context.replaceRoute(const OnboardingRoute()),
         ),
         title: Text(
           AppLocalizations.of(context).discoverTitleMessage,
