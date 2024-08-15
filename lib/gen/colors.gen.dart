@@ -13,6 +13,9 @@ import 'package:flutter/material.dart';
 class ColorName {
   ColorName._();
 
+  /// Color: #F44336
+  static const Color errorSnackBar = Color(0xFFF44336);
+
   /// Color: #000000
   static const Color primaryBackground = Color(0xFF000000);
 
@@ -33,4 +36,7 @@ class ColorName {
 
   /// Color: #EBEBF5
   static const Color secondaryLabel = Color(0xFFEBEBF5);
+
+  /// Color: #4CAF50
+  static const Color successSnackBar = Color(0xFF4CAF50);
 }
