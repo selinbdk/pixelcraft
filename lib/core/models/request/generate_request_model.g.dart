@@ -6,9 +6,7 @@ part of 'generate_request_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-GenerateRequestModel _$GenerateRequestModelFromJson(
-        Map<String, dynamic> json) =>
-    GenerateRequestModel(
+GenerateRequestModel _$GenerateRequestModelFromJson(Map<String, dynamic> json) => GenerateRequestModel(
       cfgScale: (json['cfg_scale'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       width: (json['width'] as num?)?.toInt(),
@@ -20,9 +18,7 @@ GenerateRequestModel _$GenerateRequestModelFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$GenerateRequestModelToJson(
-        GenerateRequestModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$GenerateRequestModelToJson(GenerateRequestModel instance) => <String, dynamic>{
       'cfg_scale': instance.cfgScale,
       'height': instance.height,
       'width': instance.width,

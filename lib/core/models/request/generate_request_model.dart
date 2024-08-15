@@ -3,7 +3,6 @@ import 'package:pixelcraft/core/models/request/text_prompts_model.dart';
 
 part 'generate_request_model.g.dart';
 
-
 @JsonSerializable()
 class GenerateRequestModel {
   GenerateRequestModel({
@@ -14,8 +13,12 @@ class GenerateRequestModel {
     this.samples,
     this.steps,
     this.textPrompts,
-    
   });
+
+  factory GenerateRequestModel.fromJson(Map<String, dynamic> json) => _$GenerateRequestModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$GenerateRequestModelToJson(this);
+
   @JsonKey(name: 'cfg_scale')
   int? cfgScale;
   int? height;
@@ -25,12 +28,4 @@ class GenerateRequestModel {
   int? steps;
   @JsonKey(name: 'text_prompts')
   List<TextPromptsModel>? textPrompts;
-
-
-factory GenerateRequestModel.fromJson(Map<String, dynamic> json)=> _$GenerateRequestModelFromJson(json);
-
-Map<String, dynamic> toJson() => _$GenerateRequestModelToJson(this);
-
-
-
 }
