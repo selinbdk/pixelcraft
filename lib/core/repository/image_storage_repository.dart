@@ -30,11 +30,14 @@ class ImageStorageRepositoryImpl implements ImageStorageRepository {
     }
   }
 
-  final Isar isar;
-
   @override
-  Future<void> deleteResult(Id id) {
-    // TODO: implement deleteResult
-    throw UnimplementedError();
+  Future<void> deleteResult(Id id) async {
+    try {
+      await isar.writeTxn(() async => isar.imageResponseCollections.filter().idEqualTo(id).deleteAll());
+    } catch (e) {
+      rethrow;
+    }
   }
+
+  final Isar isar;
 }

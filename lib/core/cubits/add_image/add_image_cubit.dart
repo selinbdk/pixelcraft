@@ -13,6 +13,7 @@ class AddImageCubit extends Cubit<AddImageState> {
 
     try {
       await imageStorageRepository.saveResult(model.toCollection());
+      emit(AddImageSuccess());
     } catch (_) {
       emit(AddImageFailure(message: _.toString()));
     }
