@@ -9,6 +9,37 @@
 
 part of 'app_router.dart';
 
+abstract class _$AppRouter extends RootStackRouter {
+  // ignore: unused_element
+  _$AppRouter({super.navigatorKey});
+
+  @override
+  final Map<String, PageFactory> pagesMap = {
+    DiscoverRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const DiscoverView(),
+      );
+    },
+    OnboardingRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const OnboardingView(),
+      );
+    },
+    ResultRoute.name: (routeData) {
+      final args = routeData.argsAs<ResultRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ResultView(
+          controller: args.controller,
+          key: args.key,
+        ),
+      );
+    },
+  };
+}
+
 /// generated route for
 /// [DiscoverView]
 class DiscoverRoute extends PageRouteInfo<void> {
@@ -20,12 +51,7 @@ class DiscoverRoute extends PageRouteInfo<void> {
 
   static const String name = 'DiscoverRoute';
 
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const DiscoverView();
-    },
-  );
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -39,12 +65,7 @@ class OnboardingRoute extends PageRouteInfo<void> {
 
   static const String name = 'OnboardingRoute';
 
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      return const OnboardingView();
-    },
-  );
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -65,16 +86,7 @@ class ResultRoute extends PageRouteInfo<ResultRouteArgs> {
 
   static const String name = 'ResultRoute';
 
-  static PageInfo page = PageInfo(
-    name,
-    builder: (data) {
-      final args = data.argsAs<ResultRouteArgs>();
-      return ResultView(
-        controller: args.controller,
-        key: args.key,
-      );
-    },
-  );
+  static const PageInfo<ResultRouteArgs> page = PageInfo<ResultRouteArgs>(name);
 }
 
 class ResultRouteArgs {
