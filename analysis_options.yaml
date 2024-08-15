@@ -8,6 +8,9 @@
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
 analyzer:
+  exclude:  
+    - "**/*.mocks.dart"
+    - "**/*.g.dart"
   errors:
     lines_longer_than_80_chars: ignore
     public_member_api_docs: ignore
