@@ -6,13 +6,23 @@ import 'package:pixelcraft/l10n/l10.dart';
 
 class PromptTextField extends StatelessWidget {
   const PromptTextField({
-    required this.onChanged,
     required this.controller,
+    this.onChanged,
+    this.maxLines,
+    this.minLines,
+    this.readOnly = false,
+    this.textAlign = TextAlign.start,
     super.key,
   });
 
   final TextEditingController controller;
   final void Function(String)? onChanged;
+
+  final int? minLines;
+  final int? maxLines;
+  final bool readOnly;
+
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +33,10 @@ class PromptTextField extends StatelessWidget {
         color: ColorName.secondaryLabel,
       ),
       cursorColor: ColorName.secondaryLabel,
-      minLines: 10,
-      maxLines: 20,
+      minLines: minLines,
+      maxLines: maxLines,
+      textAlign: textAlign,
+      readOnly: readOnly,
       decoration: InputDecoration(
         fillColor: ColorName.primaryBackground,
         contentPadding: const EdgeInsets.all(24),
