@@ -41,6 +41,7 @@ class AppButton extends StatelessWidget {
         style: style,
         label: Text(
           messages,
+          style: const TextStyle(color: ColorName.primaryLabel),
         ),
         icon: icon,
       );

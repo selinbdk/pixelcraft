@@ -57,7 +57,7 @@ class OnboardingView extends StatelessWidget {
                   //* Button
                   AppButton(
                     onPressed: () {
-                      context.pushRoute(const DiscoverRoute());
+                      context.replaceRoute(const DiscoverRoute());
                     },
                     backgroundColor: ColorName.primaryBlue,
                     foregroundColor: ColorName.primaryLabel,

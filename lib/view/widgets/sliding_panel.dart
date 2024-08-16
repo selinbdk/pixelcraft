@@ -1,13 +1,12 @@
 part of '../../view/discover_view.dart';
 
 class _SlidingPanel extends StatelessWidget {
-  _SlidingPanel();
-
-  final controller = TextEditingController();
-  final bool isDisabled = false;
+  const _SlidingPanel();
 
   @override
   Widget build(BuildContext context) {
+    final controller = TextEditingController();
+
     return BackdropFilter(
       filter: ImageFilter.blur(
         sigmaX: 4,
@@ -51,39 +50,61 @@ class _SlidingPanel extends StatelessWidget {
               child: PromptTextField(
                 controller: controller,
                 onChanged: (value) => controller.text = value,
+                maxLines: 5,
               ),
             ),
-            const Spacer(
-              flex: 4,
-            ),
-            SizedBox(
-              height: 64,
-              child: AppButton(
-                onPressed: () async {
-                  if (controller.text == '') {
-                    return;
-                  }
-                  await showDialog<void>(
-                    context: context,
-                    builder: (context) => _DialogField(
-                      onPressed: () {
-                        Navigator.pop(context);
-                        context.pushRoute(ResultRoute(controller: controller));
-                      },
-                    ),
-                  );
-                },
-                backgroundColor: ColorName.primaryBlue,
-                foregroundColor: ColorName.primaryLabel,
-                messages: context.l10n.generateButtonTitle,
-                icon: Assets.icons.wand.svg(),
-              ),
+            const Spacer(flex: 4),
+            ValueListenableBuilder(
+              valueListenable: controller,
+              builder: (context, value, child) {
+                return _PanelButton(
+                  controller: controller,
+                  isEnabled: value.text.isNotEmpty,
+                );
+              },
             ),
             const Spacer(
               flex: 5,
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _PanelButton extends StatelessWidget {
+  const _PanelButton({required this.controller, required this.isEnabled});
+
+  final TextEditingController controller;
+  final bool isEnabled;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 64,
+      child: AppButton(
+        onPressed: isEnabled
+            ? () async {
+                await showDialog<void>(
+                  context: context,
+                  builder: (context) => _DialogField(
+                    onPressed: () {
+                      appRouter.popUntilRoot();
+                      context.pushRoute(
+                        ResultRoute(
+                          controller: controller,
+                        ),
+                      );
+                    },
+                  ),
+                );
+              }
+            : null,
+        backgroundColor: ColorName.primaryBlue,
+        foregroundColor: ColorName.primaryLabel,
+        messages: context.l10n.generateButtonTitle,
+        icon: Assets.icons.wand.svg(),
       ),
     );
   }
