@@ -7,7 +7,7 @@ part 'generate_image_state.dart';
 
 class GenerateImageCubit extends Cubit<GenerateImageState> {
   GenerateImageCubit(
-    this.generationRepository,
+    this._generationRepository,
   ) : super(const GenerateImageInitial());
 
   Future<void> fetchData({
@@ -15,12 +15,12 @@ class GenerateImageCubit extends Cubit<GenerateImageState> {
   }) async {
     emit(const GenerateImageLoading());
     try {
-      final data = await generationRepository.detectData(prompt);
+      final data = await _generationRepository.detectData(prompt);
       emit(GenerateImageSuccess(data));
     } catch (_) {
       emit(GenerateImageFailure(message: _.toString()));
     }
   }
 
-  GenerationRepository generationRepository;
+  GenerationRepository _generationRepository;
 }

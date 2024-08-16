@@ -6,18 +6,18 @@ import 'package:pixelcraft/core/repository/image_storage_repository.dart';
 part 'add_image_state.dart';
 
 class AddImageCubit extends Cubit<AddImageState> {
-  AddImageCubit(this.imageStorageRepository) : super(const AddImageInitial());
+  AddImageCubit(this._imageStorageRepository) : super(const AddImageInitial());
 
   Future<void> addImage(ImageResponseModel model) async {
     emit(const AddImageLoading());
 
     try {
-      await imageStorageRepository.saveResult(model.toCollection());
+      await _imageStorageRepository.saveResult(model.toCollection());
       emit(const AddImageSuccess());
     } catch (_) {
       emit(AddImageFailure(message: _.toString()));
     }
   }
 
-  final ImageStorageRepository imageStorageRepository;
+  final ImageStorageRepository _imageStorageRepository;
 }

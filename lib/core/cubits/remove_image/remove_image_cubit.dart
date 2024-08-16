@@ -7,18 +7,18 @@ part 'remove_image_state.dart';
 
 class RemoveImageCubit extends Cubit<RemoveImageState> {
   RemoveImageCubit(
-    this.imageStorageRepository,
+    this._imageStorageRepository,
   ) : super(const RemoveImageInitial());
 
   Future<void> deleteImage(Id id) async {
     emit(const RemoveImageLoading());
     try {
-      await imageStorageRepository.deleteResult(id);
+      await _imageStorageRepository.deleteResult(id);
       emit(const RemoveImageSuccess());
     } catch (e) {
       emit(RemoveImageFailure(message: e.toString()));
     }
   }
 
-  final ImageStorageRepository imageStorageRepository;
+  final ImageStorageRepository _imageStorageRepository;
 }

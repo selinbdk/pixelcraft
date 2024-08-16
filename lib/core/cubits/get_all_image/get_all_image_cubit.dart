@@ -6,17 +6,17 @@ import 'package:pixelcraft/core/repository/image_storage_repository.dart';
 part 'get_all_image_state.dart';
 
 class GetAllImageCubit extends Cubit<GetAllImageState> {
-  GetAllImageCubit(this.imageStorageRepository) : super(const GetAllImageInitial());
+  GetAllImageCubit(this._imageStorageRepository) : super(const GetAllImageInitial());
 
   Future<void> getAllImage() async {
     emit(const GetAllImageLoading());
     try {
-      final imageList = await imageStorageRepository.getAllResults();
+      final imageList = await _imageStorageRepository.getAllResults();
       emit(GetAllImageSuccess(imageList));
     } catch (_) {
       emit(GetAllImageFailure(message: _.toString()));
     }
   }
 
-  final ImageStorageRepository imageStorageRepository;
+  final ImageStorageRepository _imageStorageRepository;
 }
