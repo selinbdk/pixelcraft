@@ -33,7 +33,8 @@ class ImageStorageRepositoryImpl implements ImageStorageRepository {
   @override
   Future<void> deleteResult(Id id) async {
     try {
-      await isar.writeTxn(() async => isar.imageResponseCollections.filter().idEqualTo(id).deleteAll());
+      // await isar.writeTxn(() async => isar.imageResponseCollections.filter().idEqualTo(id).deleteAll());
+      await isar.writeTxn(() async => isar.imageResponseCollections.delete(id));
     } catch (e) {
       rethrow;
     }

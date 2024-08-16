@@ -11,10 +11,10 @@ class RemoveImageCubit extends Cubit<RemoveImageState> {
   ) : super(const RemoveImageInitial());
 
   Future<void> deleteImage(Id id) async {
-    emit(RemoveImageLoading());
+    emit(const RemoveImageLoading());
     try {
       await imageStorageRepository.deleteResult(id);
-      emit(RemoveImageSuccess());
+      emit(const RemoveImageSuccess());
     } catch (e) {
       emit(RemoveImageFailure(message: e.toString()));
     }
