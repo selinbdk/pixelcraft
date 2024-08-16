@@ -1,4 +1,4 @@
-part of '../../view/discover_view.dart';
+part of '../discover_view.dart';
 
 class _DialogField extends StatelessWidget {
   const _DialogField({
