@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:pixelcraft/core/models/response/image_response_model.dart';
 import 'package:pixelcraft/view/discover_view.dart';
 import 'package:pixelcraft/view/onboarding_view.dart';
 import 'package:pixelcraft/view/result_view.dart';
