@@ -1,17 +1,18 @@
 import 'package:pixelcraft/core/constants/api_constants.dart';
 import 'package:pixelcraft/core/models/request/generate_request_model.dart';
 import 'package:pixelcraft/core/models/response/generate_response_model.dart';
+import 'package:pixelcraft/core/models/response/image_response_model.dart';
 import 'package:pixelcraft/core/network/dio_client.dart';
 
 abstract class GenerationRepository {
-  Future<GenerateResponseModel> detectData(String prompt);
+  Future<ImageResponseModel?> generateTextToImage(String prompt);
 }
 
 class GenerationRepositoryImpl implements GenerationRepository {
   const GenerationRepositoryImpl(this._dioClient);
 
   @override
-  Future<GenerateResponseModel> detectData(String prompt) async {
+  Future<ImageResponseModel?> generateTextToImage(String prompt) async {
     try {
       final requestModel = GenerateRequestModel.defaultModel(prompt: prompt);
 
@@ -22,7 +23,7 @@ class GenerationRepositoryImpl implements GenerationRepository {
 
       final data = response.data;
       final generateResponseModel = GenerateResponseModel.fromJson(data as Map<String, dynamic>);
-      return generateResponseModel;
+      return generateResponseModel.artifacts?.first;
     } catch (e) {
       rethrow;
     }

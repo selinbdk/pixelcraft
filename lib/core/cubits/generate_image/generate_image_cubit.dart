@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/core/models/response/generate_response_model.dart';
+import 'package:pixelcraft/core/models/response/image_response_model.dart';
 import 'package:pixelcraft/core/repository/generation_repository.dart';
 
 part 'generate_image_state.dart';
@@ -15,8 +17,11 @@ class GenerateImageCubit extends Cubit<GenerateImageState> {
   }) async {
     emit(const GenerateImageLoading());
     try {
-      final data = await _generationRepository.detectData(prompt);
-      emit(GenerateImageSuccess(data));
+      final data = await _generationRepository.generateTextToImage(prompt);
+      if(data!=null){
+        emit(GenerateImageSuccess(data));
+      }
+      
     } catch (_) {
       emit(GenerateImageFailure(message: _.toString()));
     }
