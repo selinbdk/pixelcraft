@@ -4,6 +4,7 @@ import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/network/dio_client.dart';
 import 'package:pixelcraft/core/repository/generation_repository.dart';
@@ -28,5 +29,7 @@ Future<void> initalize() async {
       () => GenerationRepositoryImpl(injector<DioClient>()),
     )
     ..registerLazySingleton(() => AddImageCubit(injector<ImageStorageRepository>()))
-    ..registerLazySingleton(() => GetAllImageCubit(injector<ImageStorageRepository>()));
+    ..registerLazySingleton(() => GetAllImageCubit(injector<ImageStorageRepository>()))
+    ..registerLazySingleton(() => GenerateImageCubit(injector<GenerationRepository>()));
+    
 }

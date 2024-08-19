@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/injector.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => GetIt.I<AddImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GetAllImageCubit>()),
+        BlocProvider(create: (context) => GetIt.I<GenerateImageCubit>()),
+
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
