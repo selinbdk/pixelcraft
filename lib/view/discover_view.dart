@@ -9,9 +9,11 @@ import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/components/buttons/app_button.dart';
 import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
+import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
+import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
-import 'package:pixelcraft/core/models/response/image_response_model.dart';
+import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
@@ -62,10 +64,40 @@ class DiscoverView extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Image.network('https://picsum.photos/500/500/'),
-        ],
+      body: BlocBuilder<GetAllImageCubit, GetAllImageState>(
+        builder: (context, state) {
+          if (state is! GetAllImageSuccess) {
+            return const SizedBox.shrink();
+          }
+
+          return state.imageList.isEmpty
+              ? Center(
+                  child: Text(
+                    'There are no images',
+                    style: TextStyle(
+                      color: ColorName.primaryLabel,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                )
+              : GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 16,
+                    crossAxisSpacing: 8,
+                  ),
+                  itemCount: state.imageList.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return Card(
+                      shape: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+                      child: PrimaryImage.memory(base64String: state.imageList[index].base64),
+                    );
+                  },
+                );
+        },
       ),
     );
   }

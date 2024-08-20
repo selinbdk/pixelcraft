@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:typed_data';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
@@ -9,30 +8,27 @@ import 'package:pixelcraft/config/gen/assets.gen.dart';
 import 'package:pixelcraft/config/gen/colors.gen.dart';
 import 'package:pixelcraft/core/components/buttons/app_button.dart';
 import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
-import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
+import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
-import 'package:pixelcraft/core/models/response/image_response_model.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
 @RoutePage()
 class ResultView extends StatelessWidget {
-const ResultView({
+  const ResultView({
     required this.base64String,
     required this.controller,
-    
     super.key,
   });
 
   final TextEditingController controller;
   final String base64String;
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GenerateImageCubit, GenerateImageState>(
-      
       builder: (context, state) {
         if (state is! GenerateImageSuccess) {
           return const SizedBox.shrink();
@@ -70,10 +66,7 @@ const ResultView({
             children: [
               Padding(
                 padding: AppPadding.pagePadding,
-                child: Image.memory(
-                  base64Decode(base64String),
-                
-                ),
+                child: PrimaryImage.memory(base64String: base64String,),
               ),
               Padding(
                 padding: AppPadding.pagePadding,
