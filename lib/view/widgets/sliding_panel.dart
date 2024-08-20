@@ -6,47 +6,38 @@ class _SlidingPanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = TextEditingController();
-    String? base64String;
 
-    return BlocBuilder<GenerateImageCubit, GenerateImageState>(
-      builder: (context, state) {
+    return BlocConsumer<GenerateImageCubit, GenerateImageState>(
+      listener: (context, state) {
         if (state is GenerateImageLoading) {
-          //* Future.delayed is used to solve setState() or markNeedsBuild() called during build Error
-          Future.delayed(Duration.zero, () {
-            showDialog(
-              context: context,
-              builder: (context) => const LoadingDialog(),
-              barrierDismissible: false,
-            );
-          });
+          showDialog(
+            context: context,
+            builder: (context) => const LoadingDialog(),
+            barrierDismissible: false,
+          );
         } else if (state is GenerateImageFailure) {
-          Future.delayed(Duration.zero,(){
-            Navigator.pop(context);
-            Navigator.pop(context);
-            context.showErrorMessage(message: 'Something Went Wrong!');
-
-          });
-          
+          Navigator.pop(context);
+          Navigator.pop(context);
+          context.showErrorMessage(message: 'Something Went Wrong!');
         } else if (state is GenerateImageSuccess) {
-          base64String = state.imageList.base64;
-
-          Future.delayed(Duration.zero, () {
-            showDialog<void>(
-              context: context,
-              builder: (context) => _DialogField(
-                onPressed: () {
-                  appRouter.popUntilRoot();
-                  context.pushRoute(
-                    ResultRoute(
-                      base64String: base64String ?? '',
-                      controller: controller,
-                    ),
-                  );
-                },
-              ),
-            );
-          });
+          context.read<AddImageCubit>().addImage(state.imageResponseModel);
+          showDialog<void>(
+            context: context,
+            builder: (context) => _DialogField(
+              onPressed: () {
+                appRouter.popUntilRoot();
+                context.pushRoute(
+                  ResultRoute(
+                    base64String: state.imageResponseModel.base64 ?? '',
+                    controller: controller,
+                  ),
+                );
+              },
+            ),
+          );
         }
+      },
+      builder: (context, state) {
         return BackdropFilter(
           filter: ImageFilter.blur(
             sigmaX: 4,
@@ -93,7 +84,9 @@ class _SlidingPanel extends StatelessWidget {
                     maxLines: 5,
                   ),
                 ),
-                const Spacer(flex: 4),
+                const Spacer(
+                  flex: 4,
+                ),
                 ValueListenableBuilder(
                   valueListenable: controller,
                   builder: (context, value, child) {
