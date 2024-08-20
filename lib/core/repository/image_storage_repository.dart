@@ -7,6 +7,7 @@ abstract class ImageStorageRepository {
   Future<void> saveResult(ImageResponseCollection model);
 
   Future<List<ImageResponseCollection>> getAllResults();
+
 }
 
 class ImageStorageRepositoryImpl implements ImageStorageRepository {

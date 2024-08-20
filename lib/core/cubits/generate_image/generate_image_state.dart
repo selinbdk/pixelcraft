@@ -22,11 +22,11 @@ final class GenerateImageLoading extends GenerateImageState {
 }
 
 final class GenerateImageSuccess extends GenerateImageState {
-  const GenerateImageSuccess(this.imageList);
-  final ImageResponseModel imageList;
+  const GenerateImageSuccess(this.imageResponseModel);
+  final ImageResponseModel imageResponseModel;
 
   @override
-  List<Object> get props => [imageList];
+  List<Object> get props => [imageResponseModel];
 }
 
 final class GenerateImageFailure extends GenerateImageState {

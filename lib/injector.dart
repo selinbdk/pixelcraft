@@ -31,5 +31,4 @@ Future<void> initalize() async {
     ..registerLazySingleton(() => AddImageCubit(injector<ImageStorageRepository>()))
     ..registerLazySingleton(() => GetAllImageCubit(injector<ImageStorageRepository>()))
     ..registerLazySingleton(() => GenerateImageCubit(injector<GenerationRepository>()));
-    
 }
