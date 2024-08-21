@@ -7,6 +7,7 @@ import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/injector.dart';
 
@@ -30,8 +31,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => GetIt.I<AddImageCubit>()),
+        BlocProvider(create: (context) => GetIt.I<RemoveImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GetAllImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GenerateImageCubit>()),
+
 
       ],
       child: MaterialApp.router(
