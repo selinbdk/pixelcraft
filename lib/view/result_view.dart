@@ -11,6 +11,7 @@ import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
@@ -35,7 +36,7 @@ class ResultView extends StatelessWidget {
         }
 
         //* Success State
-
+        context.read<GetAllImageCubit>().getAllImage();
         return Scaffold(
           appBar: AppBar(
             centerTitle: true,
