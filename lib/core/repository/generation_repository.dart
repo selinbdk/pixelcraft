@@ -20,7 +20,6 @@ class GenerationRepositoryImpl implements GenerationRepository {
         ApiConstants.generateImagePath,
         data: requestModel.toJson(),
       );
-
       final data = response.data;
       final generateResponseModel = GenerateResponseModel.fromJson(data as Map<String, dynamic>);
       return generateResponseModel.artifacts?.first;

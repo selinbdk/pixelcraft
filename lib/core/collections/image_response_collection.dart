@@ -8,11 +8,13 @@ class ImageResponseCollection {
     this.base64,
     this.finishReason,
     this.seed,
+    // this.prompt,
     this.id = Isar.autoIncrement,
   });
 
   final Id? id;
   final String? base64;
   final String? finishReason;
+  // final String? prompt;
   final int? seed;
 }
