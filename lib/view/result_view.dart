@@ -37,7 +37,6 @@ class ResultView extends StatelessWidget {
         }
 
         //* Success State
-
         context.read<GetAllImageCubit>().getAllImage();
         return BlocListener<ShareImageCubit, ShareImageState>(
           listener: (context, state) {
@@ -48,6 +47,7 @@ class ResultView extends StatelessWidget {
                 barrierDismissible: false,
               );
             } else if (state is ShareImageFailure) {
+              Navigator.pop(context);
               context.showErrorMessage(message: 'Something Went Wrong!');
             } else if (state is ShareImageSuccess) {
               Navigator.pop(context);
@@ -75,7 +75,7 @@ class ResultView extends StatelessWidget {
               actions: [
                 AppIconButton(
                   icon: Assets.icons.share.svg(),
-                  onPressed: () => context.read<ShareImageCubit>().shareImage(),
+                  onPressed: () => context.read<ShareImageCubit>().shareImage(base64String),
                 ),
               ],
             ),

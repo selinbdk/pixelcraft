@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GetIt.I<DownloadImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<ShareImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GenerateImageCubit>()),
-
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
