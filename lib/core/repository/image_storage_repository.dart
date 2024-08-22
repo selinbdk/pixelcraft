@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:typed_data';
+
 import 'package:isar/isar.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 
 abstract class ImageStorageRepository {
   Future<void> deleteResult(Id id);
@@ -8,6 +13,7 @@ abstract class ImageStorageRepository {
 
   Future<List<ImageResponseCollection>> getAllResults();
 
+  
 }
 
 class ImageStorageRepositoryImpl implements ImageStorageRepository {
@@ -40,6 +46,7 @@ class ImageStorageRepositoryImpl implements ImageStorageRepository {
       rethrow;
     }
   }
+
 
   final Isar isar;
 }

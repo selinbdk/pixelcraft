@@ -41,7 +41,7 @@ class DiscoverView extends StatelessWidget {
           context.showErrorMessage(message: 'Something Went Wrong!');
         } else if (state is GetAllImageSuccess) {
           Navigator.pop(context);
-          context.replaceRoute(const DiscoverRoute());
+        
         }
       },
       child: Scaffold(
@@ -83,6 +83,7 @@ class DiscoverView extends StatelessWidget {
         body: BlocListener<RemoveImageCubit, RemoveImageState>(
           listener: (context, state) async {
             if (state is RemoveImageSuccess) {
+              Navigator.pop(context);
               await context.read<GetAllImageCubit>().getAllImage();
             } else if (state is RemoveImageLoading) {
               await showDialog(

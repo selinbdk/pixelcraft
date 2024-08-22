@@ -35,6 +35,7 @@ class _SlidingPanel extends StatelessWidget {
               },
             ),
           );
+          
         }
       },
       builder: (context, state) {

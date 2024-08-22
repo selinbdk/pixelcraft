@@ -10,7 +10,8 @@ part of 'image_response_collection.dart';
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
 extension GetImageResponseCollectionCollection on Isar {
-  IsarCollection<ImageResponseCollection> get imageResponseCollections => this.collection();
+  IsarCollection<ImageResponseCollection> get imageResponseCollections =>
+      this.collection();
 }
 
 const ImageResponseCollectionSchema = CollectionSchema(
@@ -116,24 +117,28 @@ Id _imageResponseCollectionGetId(ImageResponseCollection object) {
   return object.id ?? Isar.autoIncrement;
 }
 
-List<IsarLinkBase<dynamic>> _imageResponseCollectionGetLinks(ImageResponseCollection object) {
+List<IsarLinkBase<dynamic>> _imageResponseCollectionGetLinks(
+    ImageResponseCollection object) {
   return [];
 }
 
-void _imageResponseCollectionAttach(IsarCollection<dynamic> col, Id id, ImageResponseCollection object) {}
+void _imageResponseCollectionAttach(
+    IsarCollection<dynamic> col, Id id, ImageResponseCollection object) {}
 
 extension ImageResponseCollectionQueryWhereSort
     on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QWhere> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhere> anyId() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhere>
+      anyId() {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(const IdWhereClause.any());
     });
   }
 }
 
-extension ImageResponseCollectionQueryWhere
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QWhereClause> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhereClause> idEqualTo(Id id) {
+extension ImageResponseCollectionQueryWhere on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QWhereClause> {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterWhereClause> idEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(IdWhereClause.between(
         lower: id,
@@ -142,7 +147,8 @@ extension ImageResponseCollectionQueryWhere
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhereClause> idNotEqualTo(Id id) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterWhereClause> idNotEqualTo(Id id) {
     return QueryBuilder.apply(this, (query) {
       if (query.whereSort == Sort.asc) {
         return query
@@ -164,8 +170,8 @@ extension ImageResponseCollectionQueryWhere
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhereClause> idGreaterThan(Id id,
-      {bool include = false}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterWhereClause> idGreaterThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.greaterThan(lower: id, includeLower: include),
@@ -173,8 +179,8 @@ extension ImageResponseCollectionQueryWhere
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhereClause> idLessThan(Id id,
-      {bool include = false}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterWhereClause> idLessThan(Id id, {bool include = false}) {
     return QueryBuilder.apply(this, (query) {
       return query.addWhereClause(
         IdWhereClause.lessThan(upper: id, includeUpper: include),
@@ -182,7 +188,8 @@ extension ImageResponseCollectionQueryWhere
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhereClause> idBetween(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterWhereClause> idBetween(
     Id lowerId,
     Id upperId, {
     bool includeLower = true,
@@ -199,9 +206,10 @@ extension ImageResponseCollectionQueryWhere
   }
 }
 
-extension ImageResponseCollectionQueryFilter
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QFilterCondition> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64IsNull() {
+extension ImageResponseCollectionQueryFilter on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QFilterCondition> {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64IsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'base64',
@@ -209,7 +217,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64IsNotNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64IsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'base64',
@@ -217,7 +226,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64EqualTo(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64EqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -230,7 +240,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64GreaterThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64GreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -245,7 +256,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64LessThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64LessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -260,7 +272,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64Between(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64Between(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -279,7 +292,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64StartsWith(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64StartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -292,7 +306,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64EndsWith(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64EndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -305,8 +320,9 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64Contains(String value,
-      {bool caseSensitive = true}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+          QAfterFilterCondition>
+      base64Contains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'base64',
@@ -316,8 +332,9 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64Matches(String pattern,
-      {bool caseSensitive = true}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+          QAfterFilterCondition>
+      base64Matches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'base64',
@@ -327,7 +344,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64IsEmpty() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64IsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'base64',
@@ -336,7 +354,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> base64IsNotEmpty() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64IsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'base64',
@@ -345,7 +364,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonIsNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'finishReason',
@@ -353,7 +373,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonIsNotNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'finishReason',
@@ -361,7 +382,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonEqualTo(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonEqualTo(
     String? value, {
     bool caseSensitive = true,
   }) {
@@ -374,7 +396,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonGreaterThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonGreaterThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -389,7 +412,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonLessThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonLessThan(
     String? value, {
     bool include = false,
     bool caseSensitive = true,
@@ -404,7 +428,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonBetween(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonBetween(
     String? lower,
     String? upper, {
     bool includeLower = true,
@@ -423,7 +448,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonStartsWith(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonStartsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -436,7 +462,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonEndsWith(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonEndsWith(
     String value, {
     bool caseSensitive = true,
   }) {
@@ -449,9 +476,9 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonContains(
-      String value,
-      {bool caseSensitive = true}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+          QAfterFilterCondition>
+      finishReasonContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.contains(
         property: r'finishReason',
@@ -461,9 +488,9 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+          QAfterFilterCondition>
+      finishReasonMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.matches(
         property: r'finishReason',
@@ -473,7 +500,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonIsEmpty() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonIsEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'finishReason',
@@ -482,7 +510,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> finishReasonIsNotEmpty() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'finishReason',
@@ -491,7 +520,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idIsNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'id',
@@ -499,7 +529,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idIsNotNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'id',
@@ -507,7 +538,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idEqualTo(Id? value) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idEqualTo(Id? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'id',
@@ -516,7 +548,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idGreaterThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idGreaterThan(
     Id? value, {
     bool include = false,
   }) {
@@ -529,7 +562,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idLessThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idLessThan(
     Id? value, {
     bool include = false,
   }) {
@@ -542,7 +576,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> idBetween(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idBetween(
     Id? lower,
     Id? upper, {
     bool includeLower = true,
@@ -559,7 +594,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedIsNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'seed',
@@ -567,7 +603,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedIsNotNull() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
         property: r'seed',
@@ -575,7 +612,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedEqualTo(int? value) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedEqualTo(int? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'seed',
@@ -584,7 +622,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedGreaterThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedGreaterThan(
     int? value, {
     bool include = false,
   }) {
@@ -597,7 +636,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedLessThan(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedLessThan(
     int? value, {
     bool include = false,
   }) {
@@ -610,7 +650,8 @@ extension ImageResponseCollectionQueryFilter
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterFilterCondition> seedBetween(
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedBetween(
     int? lower,
     int? upper, {
     bool includeLower = true,
@@ -628,140 +669,157 @@ extension ImageResponseCollectionQueryFilter
   }
 }
 
-extension ImageResponseCollectionQueryObject
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
+extension ImageResponseCollectionQueryObject on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
 
-extension ImageResponseCollectionQueryLinks
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
+extension ImageResponseCollectionQueryLinks on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
 
 extension ImageResponseCollectionQuerySortBy
     on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QSortBy> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortByBase64() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByBase64() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'base64', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortByBase64Desc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByBase64Desc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'base64', Sort.desc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortByFinishReason() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByFinishReason() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'finishReason', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortByFinishReasonDesc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByFinishReasonDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'finishReason', Sort.desc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortBySeed() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortBySeed() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'seed', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> sortBySeedDesc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortBySeedDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'seed', Sort.desc);
     });
   }
 }
 
-extension ImageResponseCollectionQuerySortThenBy
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QSortThenBy> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenByBase64() {
+extension ImageResponseCollectionQuerySortThenBy on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QSortThenBy> {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByBase64() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'base64', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenByBase64Desc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByBase64Desc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'base64', Sort.desc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenByFinishReason() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByFinishReason() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'finishReason', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenByFinishReasonDesc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByFinishReasonDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'finishReason', Sort.desc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenById() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenByIdDesc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenBySeed() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenBySeed() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'seed', Sort.asc);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy> thenBySeedDesc() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenBySeedDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'seed', Sort.desc);
     });
   }
 }
 
-extension ImageResponseCollectionQueryWhereDistinct
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct> distinctByBase64(
-      {bool caseSensitive = true}) {
+extension ImageResponseCollectionQueryWhereDistinct on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QDistinct> {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+      distinctByBase64({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'base64', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct> distinctByFinishReason(
-      {bool caseSensitive = true}) {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+      distinctByFinishReason({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'finishReason', caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct> distinctBySeed() {
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+      distinctBySeed() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'seed');
     });
   }
 }
 
-extension ImageResponseCollectionQueryProperty
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QQueryProperty> {
+extension ImageResponseCollectionQueryProperty on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QQueryProperty> {
   QueryBuilder<ImageResponseCollection, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
     });
   }
 
-  QueryBuilder<ImageResponseCollection, String?, QQueryOperations> base64Property() {
+  QueryBuilder<ImageResponseCollection, String?, QQueryOperations>
+      base64Property() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'base64');
     });
   }
 
-  QueryBuilder<ImageResponseCollection, String?, QQueryOperations> finishReasonProperty() {
+  QueryBuilder<ImageResponseCollection, String?, QQueryOperations>
+      finishReasonProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'finishReason');
     });
