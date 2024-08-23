@@ -22,10 +22,12 @@ final class AddImageLoading extends AddImageState {
 }
 
 final class AddImageSuccess extends AddImageState {
-  const AddImageSuccess();
+  const AddImageSuccess(this.collection);
+
+  final ImageResponseCollection collection;
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [collection];
 }
 
 final class AddImageFailure extends AddImageState {

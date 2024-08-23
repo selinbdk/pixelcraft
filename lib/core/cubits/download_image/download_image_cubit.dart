@@ -10,8 +10,12 @@ part 'download_image_state.dart';
 class DownloadImageCubit extends Cubit<DownloadImageState> {
   DownloadImageCubit() : super(const DownloadImageInitial());
 
-  Future<void> downloadImage(String base64String) async {
+  Future<void> downloadImage(String? base64String) async {
     emit(const DownloadImageLoading());
+
+    if (base64String == null) {
+      return emit(const DownloadImageFailure(message: 'base64String is null'));
+    }
 
     try {
       final status = await Permission.photos.request();

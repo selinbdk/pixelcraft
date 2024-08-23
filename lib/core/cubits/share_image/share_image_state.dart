@@ -37,3 +37,14 @@ final class ShareImageFailure extends ShareImageState {
   @override
   List<Object> get props => [message];
 }
+
+
+final class SharePermissionDenied extends ShareImageState {
+  const SharePermissionDenied({
+    required this.message,
+  });
+
+  final String message;
+  @override
+  List<Object> get props => [message];
+}
