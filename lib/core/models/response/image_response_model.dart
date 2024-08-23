@@ -14,11 +14,13 @@ class ImageResponseModel {
   factory ImageResponseModel.fromJson(Map<String, dynamic> json) => _$ImageResponseModelFromJson(json);
   Map<String, dynamic> toJson() => _$ImageResponseModelToJson(this);
 
-  ImageResponseCollection toCollection() {
+  ImageResponseCollection toCollection({required String prompt}) {
     return ImageResponseCollection(
       base64: base64,
       finishReason: finishReason,
       seed: seed,
+      prompt: prompt,
+      createdAt: DateTime.now(),
     );
   }
 
