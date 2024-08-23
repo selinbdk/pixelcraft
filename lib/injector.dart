@@ -20,6 +20,7 @@ Future<void> initalize() async {
 
   final directory = await getApplicationDocumentsDirectory();
   final isar = await Isar.open([ImageResponseCollectionSchema], directory: directory.path);
+
   final dioClient = DioClient();
 
   injector

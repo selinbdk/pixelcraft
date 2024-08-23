@@ -32,8 +32,7 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: ResultView(
-          base64String: args.base64String,
-          controller: args.controller,
+          collection: args.collection,
           key: args.key,
         ),
       );
@@ -73,15 +72,13 @@ class OnboardingRoute extends PageRouteInfo<void> {
 /// [ResultView]
 class ResultRoute extends PageRouteInfo<ResultRouteArgs> {
   ResultRoute({
-    required String base64String,
-    required TextEditingController controller,
+    required ImageResponseCollection collection,
     Key? key,
     List<PageRouteInfo>? children,
   }) : super(
           ResultRoute.name,
           args: ResultRouteArgs(
-            base64String: base64String,
-            controller: controller,
+            collection: collection,
             key: key,
           ),
           initialChildren: children,
@@ -94,19 +91,16 @@ class ResultRoute extends PageRouteInfo<ResultRouteArgs> {
 
 class ResultRouteArgs {
   const ResultRouteArgs({
-    required this.base64String,
-    required this.controller,
+    required this.collection,
     this.key,
   });
 
-  final String base64String;
-
-  final TextEditingController controller;
+  final ImageResponseCollection collection;
 
   final Key? key;
 
   @override
   String toString() {
-    return 'ResultRouteArgs{base64String: $base64String, controller: $controller, key: $key}';
+    return 'ResultRouteArgs{collection: $collection, key: $key}';
   }
 }
