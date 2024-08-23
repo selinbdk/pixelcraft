@@ -18,6 +18,7 @@ import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
+import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
 part 'widgets/dialog_field.dart';
@@ -41,7 +42,6 @@ class DiscoverView extends StatelessWidget {
           context.showErrorMessage(message: 'Something Went Wrong!');
         } else if (state is GetAllImageSuccess) {
           Navigator.pop(context);
-        
         }
       },
       child: Scaffold(
@@ -49,7 +49,14 @@ class DiscoverView extends StatelessWidget {
           centerTitle: true,
           leading: AppIconButton(
             icon: Assets.icons.settings.svg(),
-            onPressed: appRouter.maybePop,
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const PermissionAlert(),
+                barrierDismissible: false,
+              );
+            },
+            //appRouter.maybePop,
           ),
           title: Text(
             AppLocalizations.of(context).discoverTitleMessage,

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
 import 'package:pixelcraft/config/gen/colors.gen.dart';
+import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/core/components/buttons/app_button.dart';
 import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
@@ -15,18 +16,17 @@ import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/share_image/share_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/l10n/l10.dart';
+import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
 @RoutePage()
 class ResultView extends StatelessWidget {
   const ResultView({
-    required this.base64String,
-    required this.controller,
+    required this.collection,
     super.key,
   });
 
-  final TextEditingController controller;
-  final String base64String;
+  final ImageResponseCollection collection;
 
   @override
   Widget build(BuildContext context) {
@@ -51,6 +51,12 @@ class ResultView extends StatelessWidget {
               context.showErrorMessage(message: 'Something Went Wrong!');
             } else if (state is ShareImageSuccess) {
               Navigator.pop(context);
+            } else if (state is SharePermissionDenied) {
+              showDialog(
+                context: context,
+                builder: (context) => const PermissionAlert(),
+                barrierDismissible: false,
+              );
             }
           },
           child: Scaffold(
@@ -75,7 +81,7 @@ class ResultView extends StatelessWidget {
               actions: [
                 AppIconButton(
                   icon: Assets.icons.share.svg(),
-                  onPressed: () => context.read<ShareImageCubit>().shareImage(base64String),
+                  onPressed: () => context.read<ShareImageCubit>().shareImage(collection.base64),
                 ),
               ],
             ),
@@ -100,13 +106,13 @@ class ResultView extends StatelessWidget {
                   Padding(
                     padding: AppPadding.pagePadding,
                     child: PrimaryImage.memory(
-                      base64String: base64String,
+                      base64String: collection.base64,
                     ),
                   ),
                   Padding(
                     padding: AppPadding.pagePadding,
                     child: PromptTextField(
-                      controller: controller,
+                      controller: TextEditingController(text: collection.prompt),
                       maxLines: 2,
                       minLines: 1,
                       readOnly: true,
@@ -128,7 +134,7 @@ class ResultView extends StatelessWidget {
                         const SizedBox(width: 16),
                         Expanded(
                           child: AppButton(
-                            onPressed: () => context.read<DownloadImageCubit>().downloadImage(base64String),
+                            onPressed: () => context.read<DownloadImageCubit>().downloadImage(collection.base64),
                             messages: AppLocalizations.of(context).downloadButtonTitle,
                             backgroundColor: ColorName.primaryBlue,
                             foregroundColor: ColorName.primaryLabel,
