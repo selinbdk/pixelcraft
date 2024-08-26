@@ -17,6 +17,9 @@ class RegenerateImageCubit extends Cubit<RegenerateImageState> {
       if (data != null) {
         emit(RegenerateImageSuccess(data));
       }
+      else{
+        emit(const RegenerateImageFailure(message: 'Data is null!'));
+      }
     } catch (_) {
       emit(RegenerateImageFailure(message: _.toString()));
     }
