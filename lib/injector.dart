@@ -7,6 +7,7 @@ import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/download_image/download_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/regenerate_image/regenerate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/share_image/share_image_cubit.dart';
 import 'package:pixelcraft/core/network/dio_client.dart';
@@ -19,7 +20,7 @@ Future<void> initalize() async {
   final injector = GetIt.instance;
 
   final directory = await getApplicationDocumentsDirectory();
-  final isar = await Isar.open([ImageResponseCollectionSchema], directory: directory.path);
+  final isar = Isar.open(schemas: [ImageResponseCollectionSchema], directory: directory.path);
 
   final dioClient = DioClient();
 
@@ -37,5 +38,6 @@ Future<void> initalize() async {
     ..registerLazySingleton(() => GetAllImageCubit(injector<ImageStorageRepository>()))
     ..registerLazySingleton(DownloadImageCubit.new)
     ..registerLazySingleton(ShareImageCubit.new)
+    ..registerLazySingleton(() => RegenerateImageCubit(injector<GenerationRepository>()))
     ..registerLazySingleton(() => GenerateImageCubit(injector<GenerationRepository>()));
 }

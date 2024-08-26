@@ -8,6 +8,7 @@ import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/download_image/download_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/regenerate_image/regenerate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/share_image/share_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GetIt.I<DownloadImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<ShareImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GenerateImageCubit>()),
+        BlocProvider(create: (context) => GetIt.I<RegenerateImageCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
