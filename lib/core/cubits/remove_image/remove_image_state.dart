@@ -4,7 +4,7 @@ sealed class RemoveImageState extends Equatable {
   const RemoveImageState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 final class RemoveImageInitial extends RemoveImageState {
@@ -12,9 +12,7 @@ final class RemoveImageInitial extends RemoveImageState {
 
   @override
   List<Object> get props => [];
-
 }
-
 
 final class RemoveImageLoading extends RemoveImageState {
   const RemoveImageLoading();
@@ -24,10 +22,12 @@ final class RemoveImageLoading extends RemoveImageState {
 }
 
 final class RemoveImageSuccess extends RemoveImageState {
-  const RemoveImageSuccess();
+  const RemoveImageSuccess(this.id);
+
+  final int? id;
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [id];
 }
 
 final class RemoveImageFailure extends RemoveImageState {

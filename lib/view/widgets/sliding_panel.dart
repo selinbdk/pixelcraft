@@ -8,43 +8,45 @@ class _SlidingPanel extends StatelessWidget {
     final controller = TextEditingController();
 
     return BlocListener<AddImageCubit, AddImageState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is AddImageSuccess) {
-          showDialog<void>(
+          await showDialog<void>(
             context: context,
             builder: (context) => _DialogField(
-              onPressed: () {
-                appRouter.popUntilRoot();
-                context.pushRoute(ResultRoute(collection: state.collection));
+              onPressed: () async {
+                await context.pushRoute(ResultRoute(collection: state.collection));
+                await context.router.maybePop();
               },
             ),
           );
+
+          await context.read<GetAllImageCubit>().getAllImage();
         }
       },
       child: BlocConsumer<GenerateImageCubit, GenerateImageState>(
-        listener: (context, state) {
+        listener: (context, state) async {
           ///* GenerateImageLoading State
           if (state is GenerateImageLoading) {
-            showDialog(
+            await showDialog(
               context: context,
               builder: (context) => const LoadingDialog(),
               barrierDismissible: false,
             );
           }
 
-          ///* GenerateImageFailure State
-          else if (state is GenerateImageFailure) {
-            Navigator.pop(context);
-            Navigator.pop(context);
-            context.showErrorMessage(message: 'Something Went Wrong!');
-          }
-
           ///* GenerateImageSuccess State
           else if (state is GenerateImageSuccess) {
-            context.read<AddImageCubit>().addImage(
+            await context.router.maybePop();
+            await context.read<AddImageCubit>().addImage(
                   result: state.imageResponseModel,
                   prompt: controller.text,
                 );
+          }
+
+          ///* GenerateImageFailure State
+          else if (state is GenerateImageFailure) {
+            context.router.popUntilRoot();
+            context.showErrorMessage(message: 'Something Went Wrong!');
           }
         },
         builder: (context, state) {

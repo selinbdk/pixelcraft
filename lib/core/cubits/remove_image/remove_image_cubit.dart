@@ -14,7 +14,7 @@ class RemoveImageCubit extends Cubit<RemoveImageState> {
     emit(const RemoveImageLoading());
     try {
       await _imageStorageRepository.deleteResult(id);
-      emit(const RemoveImageSuccess());
+      emit(RemoveImageSuccess(id));
     } catch (e) {
       emit(RemoveImageFailure(message: e.toString()));
     }
