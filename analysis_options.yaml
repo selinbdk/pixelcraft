@@ -16,6 +16,7 @@ analyzer:
     lines_longer_than_80_chars: ignore
     one_member_abstracts: ignore
     public_member_api_docs: ignore
+    use_build_context_synchronously: ignore
 include: package:very_good_analysis/analysis_options.5.1.0.yaml
 
 #package:flutter_lints/flutter.yaml
