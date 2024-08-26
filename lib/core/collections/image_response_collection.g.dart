@@ -3,250 +3,432 @@
 part of 'image_response_collection.dart';
 
 // **************************************************************************
-// IsarCollectionGenerator
+// _IsarCollectionGenerator
 // **************************************************************************
 
 // coverage:ignore-file
-// ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
+// ignore_for_file: duplicate_ignore, invalid_use_of_protected_member, lines_longer_than_80_chars, constant_identifier_names, avoid_js_rounded_ints, no_leading_underscores_for_local_identifiers, require_trailing_commas, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_in_if_null_operators, library_private_types_in_public_api, prefer_const_constructors
+// ignore_for_file: type=lint
 
 extension GetImageResponseCollectionCollection on Isar {
-  IsarCollection<ImageResponseCollection> get imageResponseCollections =>
+  IsarCollection<int, ImageResponseCollection> get imageResponseCollections =>
       this.collection();
 }
 
-const ImageResponseCollectionSchema = CollectionSchema(
-  name: r'ImageResponseCollection',
-  id: -3062670646954882188,
-  properties: {
-    r'base64': PropertySchema(
-      id: 0,
-      name: r'base64',
-      type: IsarType.string,
-    ),
-    r'createdAt': PropertySchema(
-      id: 1,
-      name: r'createdAt',
-      type: IsarType.dateTime,
-    ),
-    r'finishReason': PropertySchema(
-      id: 2,
-      name: r'finishReason',
-      type: IsarType.string,
-    ),
-    r'prompt': PropertySchema(
-      id: 3,
-      name: r'prompt',
-      type: IsarType.string,
-    ),
-    r'seed': PropertySchema(
-      id: 4,
-      name: r'seed',
-      type: IsarType.long,
-    )
-  },
-  estimateSize: _imageResponseCollectionEstimateSize,
-  serialize: _imageResponseCollectionSerialize,
-  deserialize: _imageResponseCollectionDeserialize,
-  deserializeProp: _imageResponseCollectionDeserializeProp,
-  idName: r'id',
-  indexes: {},
-  links: {},
-  embeddedSchemas: {},
-  getId: _imageResponseCollectionGetId,
-  getLinks: _imageResponseCollectionGetLinks,
-  attach: _imageResponseCollectionAttach,
-  version: '3.1.0+1',
+const ImageResponseCollectionSchema = IsarGeneratedSchema(
+  schema: IsarSchema(
+    name: 'ImageResponseCollection',
+    idName: 'id',
+    embedded: false,
+    properties: [
+      IsarPropertySchema(
+        name: 'base64',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
+        name: 'finishReason',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
+        name: 'prompt',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
+        name: 'createdAt',
+        type: IsarType.dateTime,
+      ),
+      IsarPropertySchema(
+        name: 'seed',
+        type: IsarType.long,
+      ),
+    ],
+    indexes: [],
+  ),
+  converter: IsarObjectConverter<int, ImageResponseCollection>(
+    serialize: serializeImageResponseCollection,
+    deserialize: deserializeImageResponseCollection,
+    deserializeProperty: deserializeImageResponseCollectionProp,
+  ),
+  embeddedSchemas: [],
 );
 
-int _imageResponseCollectionEstimateSize(
-  ImageResponseCollection object,
-  List<int> offsets,
-  Map<Type, List<int>> allOffsets,
-) {
-  var bytesCount = offsets.last;
+@isarProtected
+int serializeImageResponseCollection(
+    IsarWriter writer, ImageResponseCollection object) {
   {
     final value = object.base64;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
+    if (value == null) {
+      IsarCore.writeNull(writer, 1);
+    } else {
+      IsarCore.writeString(writer, 1, value);
     }
   }
   {
     final value = object.finishReason;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
+    if (value == null) {
+      IsarCore.writeNull(writer, 2);
+    } else {
+      IsarCore.writeString(writer, 2, value);
     }
   }
   {
     final value = object.prompt;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
+    if (value == null) {
+      IsarCore.writeNull(writer, 3);
+    } else {
+      IsarCore.writeString(writer, 3, value);
     }
   }
-  return bytesCount;
+  IsarCore.writeLong(writer, 4,
+      object.createdAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
+  IsarCore.writeLong(writer, 5, object.seed ?? -9223372036854775808);
+  return object.id;
 }
 
-void _imageResponseCollectionSerialize(
-  ImageResponseCollection object,
-  IsarWriter writer,
-  List<int> offsets,
-  Map<Type, List<int>> allOffsets,
-) {
-  writer.writeString(offsets[0], object.base64);
-  writer.writeDateTime(offsets[1], object.createdAt);
-  writer.writeString(offsets[2], object.finishReason);
-  writer.writeString(offsets[3], object.prompt);
-  writer.writeLong(offsets[4], object.seed);
-}
-
-ImageResponseCollection _imageResponseCollectionDeserialize(
-  Id id,
-  IsarReader reader,
-  List<int> offsets,
-  Map<Type, List<int>> allOffsets,
-) {
+@isarProtected
+ImageResponseCollection deserializeImageResponseCollection(IsarReader reader) {
+  final int _id;
+  _id = IsarCore.readId(reader);
+  final String? _base64;
+  _base64 = IsarCore.readString(reader, 1);
+  final String? _finishReason;
+  _finishReason = IsarCore.readString(reader, 2);
+  final String? _prompt;
+  _prompt = IsarCore.readString(reader, 3);
+  final DateTime? _createdAt;
+  {
+    final value = IsarCore.readLong(reader, 4);
+    if (value == -9223372036854775808) {
+      _createdAt = null;
+    } else {
+      _createdAt =
+          DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true).toLocal();
+    }
+  }
+  final int? _seed;
+  {
+    final value = IsarCore.readLong(reader, 5);
+    if (value == -9223372036854775808) {
+      _seed = null;
+    } else {
+      _seed = value;
+    }
+  }
   final object = ImageResponseCollection(
-    base64: reader.readStringOrNull(offsets[0]),
-    createdAt: reader.readDateTimeOrNull(offsets[1]),
-    finishReason: reader.readStringOrNull(offsets[2]),
-    id: id,
-    prompt: reader.readStringOrNull(offsets[3]),
-    seed: reader.readLongOrNull(offsets[4]),
+    id: _id,
+    base64: _base64,
+    finishReason: _finishReason,
+    prompt: _prompt,
+    createdAt: _createdAt,
+    seed: _seed,
   );
   return object;
 }
 
-P _imageResponseCollectionDeserializeProp<P>(
-  IsarReader reader,
-  int propertyId,
-  int offset,
-  Map<Type, List<int>> allOffsets,
-) {
-  switch (propertyId) {
+@isarProtected
+dynamic deserializeImageResponseCollectionProp(
+    IsarReader reader, int property) {
+  switch (property) {
     case 0:
-      return (reader.readStringOrNull(offset)) as P;
+      return IsarCore.readId(reader);
     case 1:
-      return (reader.readDateTimeOrNull(offset)) as P;
+      return IsarCore.readString(reader, 1);
     case 2:
-      return (reader.readStringOrNull(offset)) as P;
+      return IsarCore.readString(reader, 2);
     case 3:
-      return (reader.readStringOrNull(offset)) as P;
+      return IsarCore.readString(reader, 3);
     case 4:
-      return (reader.readLongOrNull(offset)) as P;
-    default:
-      throw IsarError('Unknown property with id $propertyId');
-  }
-}
-
-Id _imageResponseCollectionGetId(ImageResponseCollection object) {
-  return object.id ?? Isar.autoIncrement;
-}
-
-List<IsarLinkBase<dynamic>> _imageResponseCollectionGetLinks(
-    ImageResponseCollection object) {
-  return [];
-}
-
-void _imageResponseCollectionAttach(
-    IsarCollection<dynamic> col, Id id, ImageResponseCollection object) {}
-
-extension ImageResponseCollectionQueryWhereSort
-    on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QWhere> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterWhere>
-      anyId() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(const IdWhereClause.any());
-    });
-  }
-}
-
-extension ImageResponseCollectionQueryWhere on QueryBuilder<
-    ImageResponseCollection, ImageResponseCollection, QWhereClause> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterWhereClause> idEqualTo(Id id) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: id,
-        upper: id,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterWhereClause> idNotEqualTo(Id id) {
-    return QueryBuilder.apply(this, (query) {
-      if (query.whereSort == Sort.asc) {
-        return query
-            .addWhereClause(
-              IdWhereClause.lessThan(upper: id, includeUpper: false),
-            )
-            .addWhereClause(
-              IdWhereClause.greaterThan(lower: id, includeLower: false),
-            );
-      } else {
-        return query
-            .addWhereClause(
-              IdWhereClause.greaterThan(lower: id, includeLower: false),
-            )
-            .addWhereClause(
-              IdWhereClause.lessThan(upper: id, includeUpper: false),
-            );
+      {
+        final value = IsarCore.readLong(reader, 4);
+        if (value == -9223372036854775808) {
+          return null;
+        } else {
+          return DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true)
+              .toLocal();
+        }
       }
-    });
+    case 5:
+      {
+        final value = IsarCore.readLong(reader, 5);
+        if (value == -9223372036854775808) {
+          return null;
+        } else {
+          return value;
+        }
+      }
+    default:
+      throw ArgumentError('Unknown property: $property');
   }
+}
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterWhereClause> idGreaterThan(Id id, {bool include = false}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(
-        IdWhereClause.greaterThan(lower: id, includeLower: include),
-      );
-    });
-  }
+sealed class _ImageResponseCollectionUpdate {
+  bool call({
+    required int id,
+    String? base64,
+    String? finishReason,
+    String? prompt,
+    DateTime? createdAt,
+    int? seed,
+  });
+}
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterWhereClause> idLessThan(Id id, {bool include = false}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(
-        IdWhereClause.lessThan(upper: id, includeUpper: include),
-      );
-    });
-  }
+class _ImageResponseCollectionUpdateImpl
+    implements _ImageResponseCollectionUpdate {
+  const _ImageResponseCollectionUpdateImpl(this.collection);
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterWhereClause> idBetween(
-    Id lowerId,
-    Id upperId, {
-    bool includeLower = true,
-    bool includeUpper = true,
+  final IsarCollection<int, ImageResponseCollection> collection;
+
+  @override
+  bool call({
+    required int id,
+    Object? base64 = ignore,
+    Object? finishReason = ignore,
+    Object? prompt = ignore,
+    Object? createdAt = ignore,
+    Object? seed = ignore,
   }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addWhereClause(IdWhereClause.between(
-        lower: lowerId,
-        includeLower: includeLower,
-        upper: upperId,
-        includeUpper: includeUpper,
-      ));
+    return collection.updateProperties([
+          id
+        ], {
+          if (base64 != ignore) 1: base64 as String?,
+          if (finishReason != ignore) 2: finishReason as String?,
+          if (prompt != ignore) 3: prompt as String?,
+          if (createdAt != ignore) 4: createdAt as DateTime?,
+          if (seed != ignore) 5: seed as int?,
+        }) >
+        0;
+  }
+}
+
+sealed class _ImageResponseCollectionUpdateAll {
+  int call({
+    required List<int> id,
+    String? base64,
+    String? finishReason,
+    String? prompt,
+    DateTime? createdAt,
+    int? seed,
+  });
+}
+
+class _ImageResponseCollectionUpdateAllImpl
+    implements _ImageResponseCollectionUpdateAll {
+  const _ImageResponseCollectionUpdateAllImpl(this.collection);
+
+  final IsarCollection<int, ImageResponseCollection> collection;
+
+  @override
+  int call({
+    required List<int> id,
+    Object? base64 = ignore,
+    Object? finishReason = ignore,
+    Object? prompt = ignore,
+    Object? createdAt = ignore,
+    Object? seed = ignore,
+  }) {
+    return collection.updateProperties(id, {
+      if (base64 != ignore) 1: base64 as String?,
+      if (finishReason != ignore) 2: finishReason as String?,
+      if (prompt != ignore) 3: prompt as String?,
+      if (createdAt != ignore) 4: createdAt as DateTime?,
+      if (seed != ignore) 5: seed as int?,
     });
   }
+}
+
+extension ImageResponseCollectionUpdate
+    on IsarCollection<int, ImageResponseCollection> {
+  _ImageResponseCollectionUpdate get update =>
+      _ImageResponseCollectionUpdateImpl(this);
+
+  _ImageResponseCollectionUpdateAll get updateAll =>
+      _ImageResponseCollectionUpdateAllImpl(this);
+}
+
+sealed class _ImageResponseCollectionQueryUpdate {
+  int call({
+    String? base64,
+    String? finishReason,
+    String? prompt,
+    DateTime? createdAt,
+    int? seed,
+  });
+}
+
+class _ImageResponseCollectionQueryUpdateImpl
+    implements _ImageResponseCollectionQueryUpdate {
+  const _ImageResponseCollectionQueryUpdateImpl(this.query, {this.limit});
+
+  final IsarQuery<ImageResponseCollection> query;
+  final int? limit;
+
+  @override
+  int call({
+    Object? base64 = ignore,
+    Object? finishReason = ignore,
+    Object? prompt = ignore,
+    Object? createdAt = ignore,
+    Object? seed = ignore,
+  }) {
+    return query.updateProperties(limit: limit, {
+      if (base64 != ignore) 1: base64 as String?,
+      if (finishReason != ignore) 2: finishReason as String?,
+      if (prompt != ignore) 3: prompt as String?,
+      if (createdAt != ignore) 4: createdAt as DateTime?,
+      if (seed != ignore) 5: seed as int?,
+    });
+  }
+}
+
+extension ImageResponseCollectionQueryUpdate
+    on IsarQuery<ImageResponseCollection> {
+  _ImageResponseCollectionQueryUpdate get updateFirst =>
+      _ImageResponseCollectionQueryUpdateImpl(this, limit: 1);
+
+  _ImageResponseCollectionQueryUpdate get updateAll =>
+      _ImageResponseCollectionQueryUpdateImpl(this);
+}
+
+class _ImageResponseCollectionQueryBuilderUpdateImpl
+    implements _ImageResponseCollectionQueryUpdate {
+  const _ImageResponseCollectionQueryBuilderUpdateImpl(this.query,
+      {this.limit});
+
+  final QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QOperations> query;
+  final int? limit;
+
+  @override
+  int call({
+    Object? base64 = ignore,
+    Object? finishReason = ignore,
+    Object? prompt = ignore,
+    Object? createdAt = ignore,
+    Object? seed = ignore,
+  }) {
+    final q = query.build();
+    try {
+      return q.updateProperties(limit: limit, {
+        if (base64 != ignore) 1: base64 as String?,
+        if (finishReason != ignore) 2: finishReason as String?,
+        if (prompt != ignore) 3: prompt as String?,
+        if (createdAt != ignore) 4: createdAt as DateTime?,
+        if (seed != ignore) 5: seed as int?,
+      });
+    } finally {
+      q.close();
+    }
+  }
+}
+
+extension ImageResponseCollectionQueryBuilderUpdate on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QOperations> {
+  _ImageResponseCollectionQueryUpdate get updateFirst =>
+      _ImageResponseCollectionQueryBuilderUpdateImpl(this, limit: 1);
+
+  _ImageResponseCollectionQueryUpdate get updateAll =>
+      _ImageResponseCollectionQueryBuilderUpdateImpl(this);
 }
 
 extension ImageResponseCollectionQueryFilter on QueryBuilder<
     ImageResponseCollection, ImageResponseCollection, QFilterCondition> {
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idEqualTo(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 0,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idGreaterThan(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 0,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idGreaterThanOrEqualTo(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 0,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idLessThan(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(
+          property: 0,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idLessThanOrEqualTo(
+    int value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 0,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> idBetween(
+    int lower,
+    int upper,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 0,
+          lower: lower,
+          upper: upper,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64IsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'base64',
-      ));
+      return query.addFilterCondition(const IsNullCondition(property: 1));
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64IsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'base64',
-      ));
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 1));
     });
   }
 
@@ -256,43 +438,77 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64GreaterThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64GreaterThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64LessThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        LessCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> base64LessThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -300,19 +516,17 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
       QAfterFilterCondition> base64Between(
     String? lower,
     String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'base64',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 1,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -322,11 +536,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -336,11 +552,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -348,11 +566,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       base64Contains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'base64',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 1,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -360,123 +580,51 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       base64Matches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'base64',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 1,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64IsEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'base64',
-        value: '',
-      ));
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 1,
+          value: '',
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> base64IsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'base64',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'createdAt',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'createdAt',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtEqualTo(DateTime? value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'createdAt',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtGreaterThan(
-    DateTime? value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'createdAt',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtLessThan(
-    DateTime? value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'createdAt',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> createdAtBetween(
-    DateTime? lower,
-    DateTime? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'createdAt',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 1,
+          value: '',
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'finishReason',
-      ));
+      return query.addFilterCondition(const IsNullCondition(property: 2));
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'finishReason',
-      ));
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 2));
     });
   }
 
@@ -486,43 +634,77 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonGreaterThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonGreaterThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonLessThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        LessCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> finishReasonLessThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -530,19 +712,17 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
       QAfterFilterCondition> finishReasonBetween(
     String? lower,
     String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'finishReason',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 2,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -552,11 +732,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -566,11 +748,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -578,11 +762,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       finishReasonContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'finishReason',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 2,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -590,123 +776,51 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       finishReasonMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'finishReason',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 2,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonIsEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'finishReason',
-        value: '',
-      ));
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 2,
+          value: '',
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> finishReasonIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'finishReason',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'id',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'id',
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idEqualTo(Id? value) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'id',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idGreaterThan(
-    Id? value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'id',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idLessThan(
-    Id? value, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'id',
-        value: value,
-      ));
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> idBetween(
-    Id? lower,
-    Id? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'id',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 2,
+          value: '',
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'prompt',
-      ));
+      return query.addFilterCondition(const IsNullCondition(property: 3));
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'prompt',
-      ));
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 3));
     });
   }
 
@@ -716,43 +830,77 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptGreaterThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> promptGreaterThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptLessThan(
     String? value, {
-    bool include = false,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        LessCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> promptLessThanOrEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -760,19 +908,17 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
       QAfterFilterCondition> promptBetween(
     String? lower,
     String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'prompt',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 3,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -782,11 +928,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -796,11 +944,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
     bool caseSensitive = true,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -808,11 +958,13 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       promptContains(String value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'prompt',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 3,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
@@ -820,105 +972,237 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
           QAfterFilterCondition>
       promptMatches(String pattern, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'prompt',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 3,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptIsEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'prompt',
-        value: '',
-      ));
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 3,
+          value: '',
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> promptIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'prompt',
-        value: '',
-      ));
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 3,
+          value: '',
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 4));
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtIsNotNull() {
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 4));
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtEqualTo(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 4,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtGreaterThan(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 4,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtGreaterThanOrEqualTo(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 4,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtLessThan(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(
+          property: 4,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtLessThanOrEqualTo(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 4,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> createdAtBetween(
+    DateTime? lower,
+    DateTime? upper,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 4,
+          lower: lower,
+          upper: upper,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> seedIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'seed',
-      ));
+      return query.addFilterCondition(const IsNullCondition(property: 5));
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> seedIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'seed',
-      ));
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 5));
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
-      QAfterFilterCondition> seedEqualTo(int? value) {
+      QAfterFilterCondition> seedEqualTo(
+    int? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'seed',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 5,
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> seedGreaterThan(
-    int? value, {
-    bool include = false,
-  }) {
+    int? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'seed',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 5,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedGreaterThanOrEqualTo(
+    int? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 5,
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> seedLessThan(
-    int? value, {
-    bool include = false,
-  }) {
+    int? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'seed',
-        value: value,
-      ));
+      return query.addFilterCondition(
+        LessCondition(
+          property: 5,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection,
+      QAfterFilterCondition> seedLessThanOrEqualTo(
+    int? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 5,
+          value: value,
+        ),
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection,
       QAfterFilterCondition> seedBetween(
     int? lower,
-    int? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-  }) {
+    int? upper,
+  ) {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'seed',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-      ));
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 5,
+          lower: lower,
+          upper: upper,
+        ),
+      );
     });
   }
 }
@@ -926,78 +1210,110 @@ extension ImageResponseCollectionQueryFilter on QueryBuilder<
 extension ImageResponseCollectionQueryObject on QueryBuilder<
     ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
 
-extension ImageResponseCollectionQueryLinks on QueryBuilder<
-    ImageResponseCollection, ImageResponseCollection, QFilterCondition> {}
-
 extension ImageResponseCollectionQuerySortBy
     on QueryBuilder<ImageResponseCollection, ImageResponseCollection, QSortBy> {
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByBase64() {
+      sortById() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'base64', Sort.asc);
+      return query.addSortBy(0);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByBase64Desc() {
+      sortByIdDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'base64', Sort.desc);
+      return query.addSortBy(0, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByBase64({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        1,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByBase64Desc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        1,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByFinishReason({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        2,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByFinishReasonDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        2,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByPrompt({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        3,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      sortByPromptDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        3,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       sortByCreatedAt() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'createdAt', Sort.asc);
+      return query.addSortBy(4);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       sortByCreatedAtDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'createdAt', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByFinishReason() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'finishReason', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByFinishReasonDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'finishReason', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByPrompt() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'prompt', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      sortByPromptDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'prompt', Sort.desc);
+      return query.addSortBy(4, sort: Sort.desc);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       sortBySeed() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'seed', Sort.asc);
+      return query.addSortBy(5);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       sortBySeedDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'seed', Sort.desc);
+      return query.addSortBy(5, sort: Sort.desc);
     });
   }
 }
@@ -1005,167 +1321,256 @@ extension ImageResponseCollectionQuerySortBy
 extension ImageResponseCollectionQuerySortThenBy on QueryBuilder<
     ImageResponseCollection, ImageResponseCollection, QSortThenBy> {
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByBase64() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'base64', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByBase64Desc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'base64', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByCreatedAt() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'createdAt', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByCreatedAtDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'createdAt', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByFinishReason() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'finishReason', Sort.asc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByFinishReasonDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'finishReason', Sort.desc);
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       thenById() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.asc);
+      return query.addSortBy(0);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'id', Sort.desc);
+      return query.addSortBy(0, sort: Sort.desc);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByPrompt() {
+      thenByBase64({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'prompt', Sort.asc);
+      return query.addSortBy(1, caseSensitive: caseSensitive);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
-      thenByPromptDesc() {
+      thenByBase64Desc({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'prompt', Sort.desc);
+      return query.addSortBy(1, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByFinishReason({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByFinishReasonDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(2, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByPrompt({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByPromptDesc({bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(3, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByCreatedAt() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
+      thenByCreatedAtDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(4, sort: Sort.desc);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       thenBySeed() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'seed', Sort.asc);
+      return query.addSortBy(5);
     });
   }
 
   QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterSortBy>
       thenBySeedDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'seed', Sort.desc);
+      return query.addSortBy(5, sort: Sort.desc);
     });
   }
 }
 
 extension ImageResponseCollectionQueryWhereDistinct on QueryBuilder<
     ImageResponseCollection, ImageResponseCollection, QDistinct> {
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterDistinct>
       distinctByBase64({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'base64', caseSensitive: caseSensitive);
+      return query.addDistinctBy(1, caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
-      distinctByCreatedAt() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'createdAt');
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterDistinct>
       distinctByFinishReason({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'finishReason', caseSensitive: caseSensitive);
+      return query.addDistinctBy(2, caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterDistinct>
       distinctByPrompt({bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'prompt', caseSensitive: caseSensitive);
+      return query.addDistinctBy(3, caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QDistinct>
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterDistinct>
+      distinctByCreatedAt() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(4);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, ImageResponseCollection, QAfterDistinct>
       distinctBySeed() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'seed');
+      return query.addDistinctBy(5);
     });
   }
 }
 
-extension ImageResponseCollectionQueryProperty on QueryBuilder<
-    ImageResponseCollection, ImageResponseCollection, QQueryProperty> {
-  QueryBuilder<ImageResponseCollection, int, QQueryOperations> idProperty() {
+extension ImageResponseCollectionQueryProperty1 on QueryBuilder<
+    ImageResponseCollection, ImageResponseCollection, QProperty> {
+  QueryBuilder<ImageResponseCollection, int, QAfterProperty> idProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'id');
+      return query.addProperty(0);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, String?, QQueryOperations>
+  QueryBuilder<ImageResponseCollection, String?, QAfterProperty>
       base64Property() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'base64');
+      return query.addProperty(1);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, DateTime?, QQueryOperations>
-      createdAtProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'createdAt');
-    });
-  }
-
-  QueryBuilder<ImageResponseCollection, String?, QQueryOperations>
+  QueryBuilder<ImageResponseCollection, String?, QAfterProperty>
       finishReasonProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'finishReason');
+      return query.addProperty(2);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, String?, QQueryOperations>
+  QueryBuilder<ImageResponseCollection, String?, QAfterProperty>
       promptProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'prompt');
+      return query.addProperty(3);
     });
   }
 
-  QueryBuilder<ImageResponseCollection, int?, QQueryOperations> seedProperty() {
+  QueryBuilder<ImageResponseCollection, DateTime?, QAfterProperty>
+      createdAtProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'seed');
+      return query.addProperty(4);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, int?, QAfterProperty> seedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
+    });
+  }
+}
+
+extension ImageResponseCollectionQueryProperty2<R>
+    on QueryBuilder<ImageResponseCollection, R, QAfterProperty> {
+  QueryBuilder<ImageResponseCollection, (R, int), QAfterProperty> idProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(0);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R, String?), QAfterProperty>
+      base64Property() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(1);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R, String?), QAfterProperty>
+      finishReasonProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(2);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R, String?), QAfterProperty>
+      promptProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R, DateTime?), QAfterProperty>
+      createdAtProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(4);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R, int?), QAfterProperty>
+      seedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
+    });
+  }
+}
+
+extension ImageResponseCollectionQueryProperty3<R1, R2>
+    on QueryBuilder<ImageResponseCollection, (R1, R2), QAfterProperty> {
+  QueryBuilder<ImageResponseCollection, (R1, R2, int), QOperations>
+      idProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(0);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R1, R2, String?), QOperations>
+      base64Property() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(1);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R1, R2, String?), QOperations>
+      finishReasonProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(2);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R1, R2, String?), QOperations>
+      promptProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(3);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R1, R2, DateTime?), QOperations>
+      createdAtProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(4);
+    });
+  }
+
+  QueryBuilder<ImageResponseCollection, (R1, R2, int?), QOperations>
+      seedProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(5);
     });
   }
 }

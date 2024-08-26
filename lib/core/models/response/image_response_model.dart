@@ -1,3 +1,4 @@
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 
@@ -16,6 +17,7 @@ class ImageResponseModel {
 
   ImageResponseCollection toCollection({required String prompt}) {
     return ImageResponseCollection(
+      id: Isar.get(schemas: [ImageResponseCollectionSchema]).imageResponseCollections.autoIncrement(),
       base64: base64,
       finishReason: finishReason,
       seed: seed,

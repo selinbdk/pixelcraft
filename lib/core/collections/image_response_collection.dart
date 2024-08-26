@@ -5,15 +5,16 @@ part 'image_response_collection.g.dart';
 @collection
 class ImageResponseCollection {
   const ImageResponseCollection({
+    required this.id,
     this.base64,
     this.finishReason,
     this.seed,
     this.prompt,
     this.createdAt,
-    this.id = Isar.autoIncrement,
   });
 
-  final Id? id;
+  @Id()
+  final int id;
   final String? base64;
   final String? finishReason;
   final String? prompt;

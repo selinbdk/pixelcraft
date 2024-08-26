@@ -1,15 +1,12 @@
-
 import 'package:isar/isar.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 
 abstract class ImageStorageRepository {
-  Future<void> deleteResult(Id id);
+  Future<void> deleteResult(int id);
 
   Future<void> saveResult(ImageResponseCollection model);
 
   Future<List<ImageResponseCollection>> getAllResults();
-
-  
 }
 
 class ImageStorageRepositoryImpl implements ImageStorageRepository {
@@ -18,7 +15,7 @@ class ImageStorageRepositoryImpl implements ImageStorageRepository {
   @override
   Future<List<ImageResponseCollection>> getAllResults() async {
     try {
-      return await isar.imageResponseCollections.where().findAll();
+      return isar.imageResponseCollections.where().findAll();
     } catch (e) {
       rethrow;
     }
@@ -27,22 +24,21 @@ class ImageStorageRepositoryImpl implements ImageStorageRepository {
   @override
   Future<void> saveResult(ImageResponseCollection model) async {
     try {
-      await isar.writeTxn(() async => isar.imageResponseCollections.put(model));
+      await isar.write((isar) async => isar.imageResponseCollections.put(model));
     } catch (e) {
       rethrow;
     }
   }
 
   @override
-  Future<void> deleteResult(Id id) async {
+  Future<void> deleteResult(int id) async {
     try {
       // await isar.writeTxn(() async => isar.imageResponseCollections.filter().idEqualTo(id).deleteAll());
-      await isar.writeTxn(() async => isar.imageResponseCollections.delete(id));
+      await isar.write((isar) async => isar.imageResponseCollections.delete(id));
     } catch (e) {
       rethrow;
     }
   }
-
 
   final Isar isar;
 }
