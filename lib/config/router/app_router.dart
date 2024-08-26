@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/view/discover_view.dart';
-import 'package:pixelcraft/view/image_detail_view.dart';
 import 'package:pixelcraft/view/onboarding_view.dart';
 import 'package:pixelcraft/view/result_view.dart';
 
@@ -21,11 +20,17 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: DiscoverRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
           page: ResultRoute.page,
-        ),
-        AutoRoute(
-          page: ImageDetailRoute.page,
+          fullscreenDialog: true,
+          durationInMilliseconds: 500,
+          reverseDurationInMilliseconds: 500,
+          transitionsBuilder: (_, animation, __, child) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
         ),
       ];
 }

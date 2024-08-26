@@ -21,17 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const DiscoverView(),
       );
     },
-    ImageDetailRoute.name: (routeData) {
-      final args = routeData.argsAs<ImageDetailRouteArgs>();
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: ImageDetailView(
-          idNum: args.idNum,
-          base64String: args.base64String,
-          key: args.key,
-        ),
-      );
-    },
     OnboardingRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -63,49 +52,6 @@ class DiscoverRoute extends PageRouteInfo<void> {
   static const String name = 'DiscoverRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [ImageDetailView]
-class ImageDetailRoute extends PageRouteInfo<ImageDetailRouteArgs> {
-  ImageDetailRoute({
-    required int? idNum,
-    required String? base64String,
-    Key? key,
-    List<PageRouteInfo>? children,
-  }) : super(
-          ImageDetailRoute.name,
-          args: ImageDetailRouteArgs(
-            idNum: idNum,
-            base64String: base64String,
-            key: key,
-          ),
-          initialChildren: children,
-        );
-
-  static const String name = 'ImageDetailRoute';
-
-  static const PageInfo<ImageDetailRouteArgs> page =
-      PageInfo<ImageDetailRouteArgs>(name);
-}
-
-class ImageDetailRouteArgs {
-  const ImageDetailRouteArgs({
-    required this.idNum,
-    required this.base64String,
-    this.key,
-  });
-
-  final int? idNum;
-
-  final String? base64String;
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'ImageDetailRouteArgs{idNum: $idNum, base64String: $base64String, key: $key}';
-  }
 }
 
 /// generated route for
