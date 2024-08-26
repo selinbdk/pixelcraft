@@ -19,7 +19,8 @@
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
-    "alertDialogCheck"
+    "alertDialogCheck",
+    "nullDataMessage"
   ],
 
   "ja": [
@@ -42,7 +43,8 @@
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
-    "alertDialogCheck"
+    "alertDialogCheck",
+    "nullDataMessage"
   ],
 
   "pt": [
@@ -65,7 +67,8 @@
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
-    "alertDialogCheck"
+    "alertDialogCheck",
+    "nullDataMessage"
   ],
 
   "tr": [
@@ -88,6 +91,7 @@
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
-    "alertDialogCheck"
+    "alertDialogCheck",
+    "nullDataMessage"
   ]
 }
