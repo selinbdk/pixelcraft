@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_memory_image/cached_memory_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +18,6 @@ import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/result_view.dart';
 import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
@@ -52,7 +50,7 @@ class DiscoverView extends StatelessWidget {
                 context.router.popUntilRoot();
               } else if (getAllImageState is GetAllImageFailure) {
                 context.router.popUntilRoot();
-                context.showErrorMessage(message: 'Something Went Wrong!');
+                context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
               }
             },
           ),
@@ -69,7 +67,7 @@ class DiscoverView extends StatelessWidget {
                 await context.read<GetAllImageCubit>().getAllImage();
               } else if (state is RemoveImageFailure) {
                 context.router.popUntilRoot();
-                context.showErrorMessage(message: 'Something Went Wrong!');
+                context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
               }
             },
           ),
@@ -83,7 +81,7 @@ class DiscoverView extends StatelessWidget {
             if (state.imageList.isEmpty) {
               return Center(
                 child: Text(
-                  'There are no images',
+                  AppLocalizations.of(context).emptyDiscoverMessage,
                   style: TextStyle(
                     color: ColorName.primaryLabel,
                     fontWeight: FontWeight.bold,
@@ -107,20 +105,15 @@ class DiscoverView extends StatelessWidget {
                       onTap: () {
                         context.pushRoute(ResultRoute(collection: state.imageList[index]));
                       },
-                      child: Card(
-                        shape: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(24),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(24),
-                          child: AspectRatio(
-                            aspectRatio: 1,
-                            child: Hero(
-                              tag: '${state.imageList[index].id}',
-                              child: CachedMemoryImage(
-                                uniqueKey: '${state.imageList[index].id}',
-                                base64: state.imageList[index].base64,
-                              ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Hero(
+                            tag: Key(state.imageList[index].id.toString()),
+                            child: PrimaryImage.memory(
+                              uniqueKey: '${state.imageList[index].id}',
+                              base64String: state.imageList[index].base64,
                             ),
                           ),
                         ),
@@ -141,7 +134,7 @@ class DiscoverView extends StatelessWidget {
                       children: [
                         AppIconButton(
                           onPressed: () async =>
-                              context.read<RemoveImageCubit>().deleteImage(state.imageList[index].id ?? 0),
+                              context.read<RemoveImageCubit>().deleteImage(state.imageList[index].id),
                           icon: Assets.icons.close.svg(),
                         ),
                       ],

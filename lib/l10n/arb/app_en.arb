@@ -12,7 +12,13 @@
   "downloadButtonTitle": "Download",
   "successDialogTitle": "Image successfully generated",
   "successDialogContent": "Do you want to see?",
-  "showButtonTitle": "Show me!"
-
+  "showButtonTitle": "Show me!",
+  "errorSnackbarMessage": "Something Went Wrong!",
+  "successSnackbarMessage": "Image Successfully Downloaded!",
+  "emptyDiscoverMessage": "There are no images",
+  "alertDialogTitle": "Permission Denied!",
+  "alertDialogContent": "Please check your settings",
+  "alertDialogCancel": "Cancel",
+  "alertDialogCheck": "Check"
 
 }

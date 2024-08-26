@@ -27,7 +27,7 @@ class OnboardingView extends StatelessWidget {
             barrierDismissible: false,
           );
         } else if (state is GetAllImageFailure) {
-          context.showErrorMessage(message: 'Something Went Wrong!');
+          context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
         } else if (state is GetAllImageSuccess) {
           context.replaceRoute(const DiscoverRoute());
         }

@@ -12,7 +12,14 @@
     "downloadButtonTitle",
     "successDialogTitle",
     "successDialogContent",
-    "showButtonTitle"
+    "showButtonTitle",
+    "errorSnackbarMessage",
+    "successSnackbarMessage",
+    "emptyDiscoverMessage",
+    "alertDialogTitle",
+    "alertDialogContent",
+    "alertDialogCancel",
+    "alertDialogCheck"
   ],
 
   "ja": [
@@ -28,7 +35,14 @@
     "downloadButtonTitle",
     "successDialogTitle",
     "successDialogContent",
-    "showButtonTitle"
+    "showButtonTitle",
+    "errorSnackbarMessage",
+    "successSnackbarMessage",
+    "emptyDiscoverMessage",
+    "alertDialogTitle",
+    "alertDialogContent",
+    "alertDialogCancel",
+    "alertDialogCheck"
   ],
 
   "pt": [
@@ -44,7 +58,14 @@
     "downloadButtonTitle",
     "successDialogTitle",
     "successDialogContent",
-    "showButtonTitle"
+    "showButtonTitle",
+    "errorSnackbarMessage",
+    "successSnackbarMessage",
+    "emptyDiscoverMessage",
+    "alertDialogTitle",
+    "alertDialogContent",
+    "alertDialogCancel",
+    "alertDialogCheck"
   ],
 
   "tr": [
@@ -60,6 +81,13 @@
     "downloadButtonTitle",
     "successDialogTitle",
     "successDialogContent",
-    "showButtonTitle"
+    "showButtonTitle",
+    "errorSnackbarMessage",
+    "successSnackbarMessage",
+    "emptyDiscoverMessage",
+    "alertDialogTitle",
+    "alertDialogContent",
+    "alertDialogCancel",
+    "alertDialogCheck"
   ]
 }

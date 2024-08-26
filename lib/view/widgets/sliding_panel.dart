@@ -46,7 +46,7 @@ class _SlidingPanel extends StatelessWidget {
           ///* GenerateImageFailure State
           else if (state is GenerateImageFailure) {
             context.router.popUntilRoot();
-            context.showErrorMessage(message: 'Something Went Wrong!');
+            context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
           }
         },
         builder: (context, state) {
