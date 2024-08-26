@@ -16,8 +16,13 @@ class PrimaryImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('object');
     if (base64String != null) {
-      return Image.memory(base64Decode(base64String ?? ''));
+      return Image.memory(
+        base64Decode(base64String ?? ''),
+        cacheHeight: 1024,
+        cacheWidth: 1024,
+      );
     } else if (imagePath != null) {
       return Image.asset(imagePath ?? '');
     }
