@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get_it/get_it.dart';
 import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
 import 'package:pixelcraft/core/cubits/download_image/download_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => GetIt.I<ShareImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<GenerateImageCubit>()),
         BlocProvider(create: (context) => GetIt.I<RegenerateImageCubit>()),
+        BlocProvider(create: (context) => GetIt.I<BookMarksCubit>()),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

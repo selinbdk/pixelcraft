@@ -6,12 +6,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pixelcraft/config/gen/assets.gen.dart';
 import 'package:pixelcraft/config/router/app_router.dart';
+import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/core/components/buttons/app_button.dart';
 import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
 import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
@@ -27,7 +29,9 @@ part 'widgets/sliding_panel.dart';
 
 @RoutePage()
 class DiscoverView extends StatelessWidget {
-  const DiscoverView({super.key});
+  const DiscoverView({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -123,8 +127,12 @@ class DiscoverView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         AppIconButton(
-                          onPressed: () {},
-                          icon: Assets.icons.bookmark.svg(),
+                          onPressed: () => context.read<BookMarksCubit>().toggleBookmark(state.imageList[index]),
+                          icon: BlocBuilder<BookMarksCubit, List<ImageResponseCollection>>(
+                            builder: (context, state) {
+                              return Builder(builder: (context) => const Text('data'));
+                            },
+                          ),
                         ),
                       ],
                     ),
