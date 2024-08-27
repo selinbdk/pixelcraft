@@ -19,6 +19,9 @@
   "alertDialogTitle": "Permission Denied!",
   "alertDialogContent": "Please check your settings",
   "alertDialogCancel": "Cancel",
-  "alertDialogCheck": "Check"
+  "alertDialogCheck": "Check",
+  "destinationHome": "Home",
+  "destinationBookMarks": "BookMarks"
   
+
 }
