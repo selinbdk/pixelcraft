@@ -29,7 +29,7 @@ class OnboardingView extends StatelessWidget {
         } else if (state is GetAllImageFailure) {
           context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
         } else if (state is GetAllImageSuccess) {
-          context.replaceRoute(const DiscoverRoute());
+          context.replaceRoute(const MasterRoute());
         }
       },
       builder: (context, state) {

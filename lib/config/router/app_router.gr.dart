@@ -15,10 +15,22 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    BookmarksRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const BookmarksView(),
+      );
+    },
     DiscoverRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const DiscoverView(),
+      );
+    },
+    MasterRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MasterView(),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -41,6 +53,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [BookmarksView]
+class BookmarksRoute extends PageRouteInfo<void> {
+  const BookmarksRoute({List<PageRouteInfo>? children})
+      : super(
+          BookmarksRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'BookmarksRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [DiscoverView]
 class DiscoverRoute extends PageRouteInfo<void> {
   const DiscoverRoute({List<PageRouteInfo>? children})
@@ -50,6 +76,20 @@ class DiscoverRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'DiscoverRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MasterView]
+class MasterRoute extends PageRouteInfo<void> {
+  const MasterRoute({List<PageRouteInfo>? children})
+      : super(
+          MasterRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MasterRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
