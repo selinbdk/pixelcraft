@@ -18,6 +18,8 @@ import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
+import 'package:pixelcraft/view/bookmarks_view.dart';
+import 'package:pixelcraft/view/widgets/app_navigation_bar.dart';
 import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
@@ -28,7 +30,7 @@ part 'widgets/sliding_panel.dart';
 @RoutePage()
 class DiscoverView extends StatelessWidget {
   const DiscoverView({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,57 +93,68 @@ class DiscoverView extends StatelessWidget {
               );
             }
 
-            return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 8,
-              ),
-              itemCount: state.imageList.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Stack(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        context.pushRoute(ResultRoute(collection: state.imageList[index]));
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(24),
-                        child: AspectRatio(
-                          aspectRatio: 1,
-                          child: Hero(
-                            tag: Key(state.imageList[index].id.toString()),
-                            child: PrimaryImage.memory(
-                              uniqueKey: '${state.imageList[index].id}',
-                              base64String: state.imageList[index].base64,
+            return Column(
+              children: [
+                Flexible(
+                  flex: 7,
+                  child: GridView.builder(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 8,
+                    ),
+                    itemCount: state.imageList.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Stack(
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              context.pushRoute(ResultRoute(collection: state.imageList[index]));
+                            },
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(24),
+                              child: AspectRatio(
+                                aspectRatio: 1,
+                                child: Hero(
+                                  tag: Key(state.imageList[index].id.toString()),
+                                  child: PrimaryImage.memory(
+                                    base64String: state.imageList[index].base64,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AppIconButton(
-                          onPressed: () {},
-                          icon: Assets.icons.bookmark.svg(),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        AppIconButton(
-                          onPressed: () async =>
-                              context.read<RemoveImageCubit>().deleteImage(state.imageList[index].id),
-                          icon: Assets.icons.close.svg(),
-                        ),
-                      ],
-                    ),
-                  ],
-                );
-              },
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              AppIconButton(
+                                onPressed: () {},
+                                icon: Assets.icons.bookmark.svg(),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              AppIconButton(
+                                onPressed: () async =>
+                                    context.read<RemoveImageCubit>().deleteImage(state.imageList[index].id),
+                                icon: Assets.icons.close.svg(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: AppNavigationBar(
+                    onTap: (index) {},
+                  ),
+                ),
+              ],
             );
           },
         ),
