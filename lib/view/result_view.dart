@@ -141,7 +141,7 @@ class ResultView extends StatelessWidget {
             } else if (state is DownloadImageSuccess) {
               context
                 ..maybePop()
-                ..showSuccessMessage(message: AppLocalizations.of(context).successSnackbarMessage);
+                ..showSuccessMessage(message: AppLocalizations.of(context).successSnackbarDownloadMessage);
             }
           },
           child: Column(

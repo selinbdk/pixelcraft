@@ -18,13 +18,9 @@ class MasterView extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           body: child,
-          bottomNavigationBar: Expanded(
-            child: AppNavigationBar(
-              currentIndex: tabsRouter.activeIndex,
-              onTap: (value) {
-                tabsRouter.setActiveIndex(value);
-              },
-            ),
+          bottomNavigationBar: AppNavigationBar(
+            currentIndex: tabsRouter.activeIndex,
+            onTap: tabsRouter.setActiveIndex,
           ),
         );
       },

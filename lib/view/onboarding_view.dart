@@ -15,6 +15,7 @@ import 'package:pixelcraft/l10n/l10.dart';
 @RoutePage()
 class OnboardingView extends StatelessWidget {
   const OnboardingView({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class OnboardingView extends StatelessWidget {
         } else if (state is GetAllImageFailure) {
           context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
         } else if (state is GetAllImageSuccess) {
-          context.replaceRoute(const MasterRoute());
+          context.replaceRoute(MasterRoute());
         }
       },
       builder: (context, state) {
