@@ -14,14 +14,15 @@
   "successDialogContent": "Do you want to see?",
   "showButtonTitle": "Show me!",
   "errorSnackbarMessage": "Something Went Wrong!",
-  "successSnackbarMessage": "Image Successfully Downloaded!",
+  "successSnackbarDownloadMessage": "Image Successfully Downloaded!",
   "emptyDiscoverMessage": "There are no images",
   "alertDialogTitle": "Permission Denied!",
   "alertDialogContent": "Please check your settings",
   "alertDialogCancel": "Cancel",
   "alertDialogCheck": "Check",
   "destinationHome": "Home",
-  "destinationBookMarks": "BookMarks"
+  "destinationBookMarks": "BookMarks",
+  "successSnackbarSavedMessage": "Image Successfully Saved!"
   
 
 }

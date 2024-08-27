@@ -14,14 +14,15 @@
     "successDialogContent",
     "showButtonTitle",
     "errorSnackbarMessage",
-    "successSnackbarMessage",
+    "successSnackbarDownloadMessage",
     "emptyDiscoverMessage",
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
     "alertDialogCheck",
     "destinationHome",
-    "destinationBookMarks"
+    "destinationBookMarks",
+    "successSnackbarSavedMessage"
   ],
 
   "ja": [
@@ -39,14 +40,15 @@
     "successDialogContent",
     "showButtonTitle",
     "errorSnackbarMessage",
-    "successSnackbarMessage",
+    "successSnackbarDownloadMessage",
     "emptyDiscoverMessage",
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
     "alertDialogCheck",
     "destinationHome",
-    "destinationBookMarks"
+    "destinationBookMarks",
+    "successSnackbarSavedMessage"
   ],
 
   "pt": [
@@ -64,14 +66,15 @@
     "successDialogContent",
     "showButtonTitle",
     "errorSnackbarMessage",
-    "successSnackbarMessage",
+    "successSnackbarDownloadMessage",
     "emptyDiscoverMessage",
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
     "alertDialogCheck",
     "destinationHome",
-    "destinationBookMarks"
+    "destinationBookMarks",
+    "successSnackbarSavedMessage"
   ],
 
   "tr": [
@@ -89,13 +92,14 @@
     "successDialogContent",
     "showButtonTitle",
     "errorSnackbarMessage",
-    "successSnackbarMessage",
+    "successSnackbarDownloadMessage",
     "emptyDiscoverMessage",
     "alertDialogTitle",
     "alertDialogContent",
     "alertDialogCancel",
     "alertDialogCheck",
     "destinationHome",
-    "destinationBookMarks"
+    "destinationBookMarks",
+    "successSnackbarSavedMessage"
   ]
 }
