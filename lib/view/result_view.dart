@@ -23,6 +23,7 @@ import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
+
 @RoutePage()
 class ResultView extends StatelessWidget {
   const ResultView({
@@ -58,11 +59,11 @@ class ResultView extends StatelessWidget {
         BlocListener<RegenerateImageCubit, RegenerateImageState>(
           listener: (context, regenerateState) async {
             if (regenerateState is RegenerateImageLoading) {
-              // await showDialog(
-              //   context: context,
-              //   builder: (context) => const LoadingDialog(),
-              //   barrierDismissible: false,
-              // );
+              await showDialog(
+                context: context,
+                builder: (context) => const LoadingDialog(),
+                barrierDismissible: false,
+              );
             } else if (regenerateState is RegenerateImageSuccess) {
               // await context.maybePop();
               await context.read<AddImageCubit>().addImage(
@@ -152,7 +153,6 @@ class ResultView extends StatelessWidget {
                   child: Hero(
                     tag: Key(collection.id.toString()),
                     child: PrimaryImage.memory(
-                      uniqueKey: '${collection.id}',
                       base64String: collection.base64,
                     ),
                   ),
