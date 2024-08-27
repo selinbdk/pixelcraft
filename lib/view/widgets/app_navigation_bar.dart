@@ -6,15 +6,16 @@ import 'package:pixelcraft/l10n/l10.dart';
 
 class AppNavigationBar extends StatelessWidget {
   const AppNavigationBar({
+    required this.currentIndex,
     required this.onTap,
     super.key,
     });
-
+  final int currentIndex;
   final void Function(int)? onTap;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+    return BottomNavigationBar(
+        currentIndex:currentIndex,
         unselectedFontSize: 10.sp,
         selectedFontSize: 10.sp,
         unselectedItemColor: ColorName.primaryLabel,
@@ -34,7 +35,7 @@ class AppNavigationBar extends StatelessWidget {
           ),
         ],
         onTap: onTap,
-      ),
-    );
+      );
+    
   }
 }
