@@ -24,6 +24,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/close.svg
   SvgGenImage get close => const SvgGenImage('assets/icons/close.svg');
 
+  /// File path: assets/icons/filled_bookmark.svg
+  SvgGenImage get filledBookmark =>
+      const SvgGenImage('assets/icons/filled_bookmark.svg');
+
   /// File path: assets/icons/settings.svg
   SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
 
@@ -34,7 +38,8 @@ class $AssetsIconsGen {
   SvgGenImage get wand => const SvgGenImage('assets/icons/wand.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [add, bookmark, close, settings, share, wand];
+  List<SvgGenImage> get values =>
+      [add, bookmark, close, filledBookmark, settings, share, wand];
 }
 
 class $AssetsImagesGen {
