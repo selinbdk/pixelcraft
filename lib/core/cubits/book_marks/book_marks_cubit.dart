@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 
-class BookMarksCubit extends Cubit<List<ImageResponseCollection>> {
+class BookMarksCubit extends HydratedCubit<List<ImageResponseCollection>> {
   BookMarksCubit() : super(const []);
 
   void toggleBookmark(
@@ -17,4 +18,13 @@ class BookMarksCubit extends Cubit<List<ImageResponseCollection>> {
     newState.add(collection);
     emit(newState);
   }
+
+@override
+  List<ImageResponseCollection> fromJson(Map<String, dynamic> json) => json['value'] as List<ImageResponseCollection>;
+
+  @override
+  Map<String, List<ImageResponseCollection>> toJson(List<ImageResponseCollection> state) => {'value': state };
+
+
+
 }

@@ -21,3 +21,5 @@ class ImageResponseCollection {
   final DateTime? createdAt;
   final int? seed;
 }
+
+
