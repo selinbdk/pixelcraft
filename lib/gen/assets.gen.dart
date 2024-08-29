@@ -28,6 +28,26 @@ class $AssetsIconsGen {
   SvgGenImage get filledBookmark =>
       const SvgGenImage('assets/icons/filled_bookmark.svg');
 
+  /// File path: assets/icons/flag-japan.svg
+  SvgGenImage get flagJapan => const SvgGenImage('assets/icons/flag-japan.svg');
+
+  /// File path: assets/icons/flag-portugal.svg
+  SvgGenImage get flagPortugal =>
+      const SvgGenImage('assets/icons/flag-portugal.svg');
+
+  /// File path: assets/icons/flag-spain.svg
+  SvgGenImage get flagSpain => const SvgGenImage('assets/icons/flag-spain.svg');
+
+  /// File path: assets/icons/flag-tr.svg
+  SvgGenImage get flagTr => const SvgGenImage('assets/icons/flag-tr.svg');
+
+  /// File path: assets/icons/flag-united-kingdom.svg
+  SvgGenImage get flagUnitedKingdom =>
+      const SvgGenImage('assets/icons/flag-united-kingdom.svg');
+
+  /// File path: assets/icons/language.svg
+  SvgGenImage get language => const SvgGenImage('assets/icons/language.svg');
+
   /// File path: assets/icons/settings.svg
   SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
 
@@ -38,8 +58,21 @@ class $AssetsIconsGen {
   SvgGenImage get wand => const SvgGenImage('assets/icons/wand.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values =>
-      [add, bookmark, close, filledBookmark, settings, share, wand];
+  List<SvgGenImage> get values => [
+        add,
+        bookmark,
+        close,
+        filledBookmark,
+        flagJapan,
+        flagPortugal,
+        flagSpain,
+        flagTr,
+        flagUnitedKingdom,
+        language,
+        settings,
+        share,
+        wand
+      ];
 }
 
 class $AssetsImagesGen {
