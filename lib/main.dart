@@ -20,11 +20,9 @@ import 'package:pixelcraft/injector.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: kIsWeb
-        ? HydratedStorage.webStorageDirectory
-        : await getApplicationDocumentsDirectory(),
+    storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : await getApplicationDocumentsDirectory(),
   );
 
   await initalize();
@@ -66,6 +64,7 @@ class MyApp extends StatelessWidget {
         ///* Localization Config
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
+        locale: const Locale('tr', 'TR'),
 
         ///
         ///* Theme
