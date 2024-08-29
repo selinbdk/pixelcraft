@@ -30,8 +30,6 @@ class AppRouter extends _$AppRouter {
             ),
           ],
         ),
-        
-
         CustomRoute(
           page: ResultRoute.page,
           fullscreenDialog: true,
