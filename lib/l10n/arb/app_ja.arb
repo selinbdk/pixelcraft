@@ -1,6 +1,26 @@
 {
-  "@@locale":"ja"
+  "@@locale": "ja",
+  "onboardingTitleMessage": "あなたの頭の中にあるものを何でも生成",
+  "onboardingContentMessage": "美しいビジュアルにあなたの頭の中にあるものを生成するのを手伝うために開発された AI です",
+  "letsGoButtonTitle": "始めよう!",
+  "discoverTitleMessage": "検出する",
+  "promptTitle": "プロンプト",
+  "promptContentMessage": "想像力をタイプして、[アプリ] に視覚化させましょう.",
+  "generateButtonTitle": "生成",
+  "resultTitle": "イメージ名",
+  "regenerateButtonTitle": "再生成",
+  "downloadButtonTitle": "ダウンロード",
+  "successDialogTitle": "画像が正常に生成されました",
+  "successDialogContent": "ご覧になりたいですか?",
+  "showButtonTitle": "表示!",
+  "errorSnackbarMessage": "エラーが発生しました!",
+  "successSnackbarDownloadMessage": "画像ダウンロードに成功しました!",
+  "emptyDiscoverMessage": "画像がありません",
+  "alertDialogTitle": "権限が拒否されました!",
+  "alertDialogContent": "設定を確認してください",
+  "alertDialogCancel": "キャンセル",
+  "alertDialogCheck": "チェック",
+  "destinationHome": "ホーム",
+  "destinationBookMarks": "ブックマーク",
+  "successSnackbarSavedMessage": "画像が保存されました!"
 }
-
-
-

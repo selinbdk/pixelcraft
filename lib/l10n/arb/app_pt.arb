@@ -1,6 +1,26 @@
 {
-  "@@locale":"pt"
+  "@@locale": "pt",
+  "onboardingTitleMessage": "Gere tudo o que está em sua mente agora",
+  "onboardingContentMessage": "Uma IA desenvolvida para ajudá-lo a gerar o que está em sua mente em um lindo visual",
+  "letsGoButtonTitle": "Vamos lá!",
+  "discoverTitleMessage": "Descubra",
+  "promptTitle": "Prompt",
+  "promptContentMessage": "Digite sua imaginação e deixe o [App] visualizá-la.",
+  "generateButtonTitle": "Gerar",
+  "resultTitle": "Nome da imagem",
+  "regenerateButtonTitle": "Regerar",
+  "downloadButtonTitle": "Baixar",
+  "successDialogTitle": "Imagem gerada com sucesso",
+  "successDialogContent": "Quer ver?",
+  "showButtonTitle": "Mostrar!",
+  "errorSnackbarMessage": "Algo deu errado!",
+  "successSnackbarDownloadMessage": "Imagem baixada com sucesso!",
+  "emptyDiscoverMessage": "Não há imagens",
+  "alertDialogTitle": "Permissão negada!",
+  "alertDialogContent": "Por favor verifique suas configurações",
+  "alertDialogCancel": "Cancelar",
+  "alertDialogCheck": "Verificar",
+  "destinationHome": "Início",
+  "destinationBookMarks": "Favoritos",
+  "successSnackbarSavedMessage": "Imagem salva com sucesso!"
 }
-
-
-

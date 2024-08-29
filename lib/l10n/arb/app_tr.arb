@@ -1,6 +1,26 @@
 {
-  "@@locale":"tr"
+  "@@locale": "tr",
+  "onboardingTitleMessage": "Şu an aklınızdakileri üretin",
+  "onboardingContentMessage": "Aklındakileri göz alıcı görsellere dönüştürmene yardımcı olacak şekilde geliştirilmiş bir AI",
+  "letsGoButtonTitle": "Haydi Başlayalım!",
+  "discoverTitleMessage": "Keşfet",
+  "promptTitle": "İstem",
+  "promptContentMessage": "Hayal gücünüzü yazın ve [Uygulama] tarafından görselleştirilmesine izin verin.",
+  "generateButtonTitle": "Oluştur",
+  "resultTitle": "Görsel Adı",
+  "regenerateButtonTitle": "Yeniden Oluştur",
+  "downloadButtonTitle": "İndir",
+  "successDialogTitle": "Görsel başarıyla oluşturuldu",
+  "successDialogContent": "Görmek ister misiniz?",
+  "showButtonTitle": "Göster!",
+  "errorSnackbarMessage": "Bir Şeyler Yanlış Gitti!",
+  "successSnackbarDownloadMessage": "Görsel başarıyla indirildi!",
+  "emptyDiscoverMessage": "Hiç görsel bulunmamaktadır",
+  "alertDialogTitle": "İzin Reddedildi!",
+  "alertDialogContent": "Lütfen ayarlarınızı kontrol edin",
+  "alertDialogCancel": "İptal",
+  "alertDialogCheck": "Kontrol Et",
+  "destinationHome": "Ana Sayfa",
+  "destinationBookMarks": "Yer İmleri",
+  "successSnackbarSavedMessage": "Görsel başarıyla kaydedildi!"
 }
-
-
-
