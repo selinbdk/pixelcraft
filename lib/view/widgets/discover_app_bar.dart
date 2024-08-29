@@ -8,7 +8,7 @@ class _DiscoverAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       centerTitle: true,
       leading: AppIconButton(
-        icon: Assets.icons.settings.svg(),
+        icon: Assets.icons.language.svg(),
         onPressed: () {
           showDialog(
             context: context,
@@ -16,15 +16,33 @@ class _DiscoverAppBar extends StatelessWidget implements PreferredSizeWidget {
             barrierDismissible: false,
           );
         },
-        //appRouter.maybePop,
       ),
-      title: Text(
-        AppLocalizations.of(context).discoverTitleMessage,
-        style: context.appTextTheme.displayMedium?.copyWith(
-          color: ColorName.primaryLabel,
-          fontWeight: FontWeight.bold,
-          fontSize: 17.sp,
-        ),
+      title: Row(
+        children: [
+          AppIconButton(
+            icon: Assets.icons.language.svg(),
+            onPressed: () {
+              showDialog(
+                context: context,
+                builder: (context) => const PermissionAlert(),
+                barrierDismissible: false,
+              );
+            },
+          ),
+          const Spacer(),
+          Text(
+            textAlign: TextAlign.center,
+            AppLocalizations.of(context).discoverTitleMessage,
+            style: context.appTextTheme.displayMedium?.copyWith(
+              color: ColorName.primaryLabel,
+              fontWeight: FontWeight.bold,
+              fontSize: 17.sp,
+            ),
+          ),
+          const Spacer(
+            flex: 2,
+          ),
+        ],
       ),
       actions: [
         AppIconButton(
