@@ -25,7 +25,6 @@ import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/assets.gen.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
 part 'widgets/dialog_field.dart';
