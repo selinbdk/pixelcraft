@@ -8,6 +8,7 @@ import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
 import 'package:pixelcraft/gen/assets.gen.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
+import 'package:pixelcraft/l10n/l10.dart';
 
 @RoutePage()
 class BookmarksView extends StatelessWidget {
@@ -19,14 +20,11 @@ class BookmarksView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<BookMarksCubit, List<ImageResponseCollection>>(
       builder: (context, bookmarkList) {
-  
-
-        print('triggered bookmarksview');
         if (bookmarkList.isEmpty) {
           return Scaffold(
             body: Center(
               child: Text(
-                'There are no saved images',
+                AppLocalizations.of(context).bookmarksViewMessage,
                 style: TextStyle(
                   color: ColorName.primaryLabel,
                   fontWeight: FontWeight.bold,

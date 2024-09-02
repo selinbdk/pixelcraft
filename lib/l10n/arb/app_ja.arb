@@ -22,5 +22,6 @@
   "alertDialogCheck": "チェック",
   "destinationHome": "ホーム",
   "destinationBookMarks": "ブックマーク",
-  "successSnackbarSavedMessage": "画像が保存されました!"
+  "successSnackbarSavedMessage": "画像が保存されました!",
+  "bookmarksViewMessage": "保存している画像はありません。"
 }

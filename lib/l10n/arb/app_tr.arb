@@ -22,5 +22,6 @@
   "alertDialogCheck": "Kontrol Et",
   "destinationHome": "Ana Sayfa",
   "destinationBookMarks": "Yer İmleri",
-  "successSnackbarSavedMessage": "Görsel başarıyla kaydedildi!"
+  "successSnackbarSavedMessage": "Görsel başarıyla kaydedildi!",
+  "bookmarksViewMessage": "Kaydedilmiş görüntü yok"
 }

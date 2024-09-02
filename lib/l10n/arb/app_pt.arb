@@ -22,5 +22,6 @@
   "alertDialogCheck": "Verificar",
   "destinationHome": "Início",
   "destinationBookMarks": "Favoritos",
-  "successSnackbarSavedMessage": "Imagem salva com sucesso!"
+  "successSnackbarSavedMessage": "Imagem salva com sucesso!",
+  "bookmarksViewMessage": "Não há imagens salvas"
 }

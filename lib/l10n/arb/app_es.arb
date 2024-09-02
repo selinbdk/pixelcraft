@@ -22,5 +22,6 @@
   "alertDialogCheck": "Comprobar",
   "destinationHome": "Inicio",
   "destinationBookMarks": "Marcadores",
-  "successSnackbarSavedMessage": "¡Imagen guardada correctamente!"
+  "successSnackbarSavedMessage": "¡Imagen guardada correctamente!",
+  "bookmarksViewMessage": "No hay imágenes guardadas"
 }

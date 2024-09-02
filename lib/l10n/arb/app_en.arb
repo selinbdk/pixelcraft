@@ -22,6 +22,7 @@
   "alertDialogCheck": "Check",
   "destinationHome": "Home",
   "destinationBookMarks": "BookMarks",
-  "successSnackbarSavedMessage": "Image Successfully Saved!"
+  "successSnackbarSavedMessage": "Image Successfully Saved!",
+  "bookmarksViewMessage": "There are no saved images"
   
 }
