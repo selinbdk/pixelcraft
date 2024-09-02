@@ -45,7 +45,6 @@ class ImageResponseCollection extends Equatable {
   }
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         id,
         base64,

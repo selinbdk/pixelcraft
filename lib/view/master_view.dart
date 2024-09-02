@@ -10,9 +10,9 @@ class MasterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsRouter(
-      routes:  [
+      routes: const[
         DiscoverRoute(),
-        const BookmarksRoute(),
+        BookmarksRoute(),
       ],
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
