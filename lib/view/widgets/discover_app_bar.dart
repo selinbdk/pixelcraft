@@ -3,11 +3,12 @@ part of '../../view/discover_view.dart';
 class _DiscoverAppBar extends StatelessWidget implements PreferredSizeWidget {
   _DiscoverAppBar();
   final List<SvgPicture> flags = [
+    Assets.icons.flagTurkey.svg(),
     Assets.icons.flagUnitedKingdom.svg(),
     Assets.icons.flagSpain.svg(),
     Assets.icons.flagJapan.svg(),
     Assets.icons.flagPortugal.svg(),
-    Assets.icons.flagTurkey.svg(),
+    
   ];
 
   final List<String> languageCodes = [

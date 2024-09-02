@@ -15,7 +15,7 @@ class CurrentFlagCubit extends HydratedCubit<int> {
   int fromJson(Map<String, dynamic> json) => json['value'] as int;
 
   @override
-  Map<String, int> toJson(int state) => { 'value': state };
+  Map<String, int> toJson(int state) => {'value': state };
 
 
 

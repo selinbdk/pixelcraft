@@ -5,7 +5,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 
 class LocaleCubit extends HydratedCubit<Locale> {
-  LocaleCubit() : super(const Locale('en'));
+  LocaleCubit() : super(const Locale('tr'));
 
   void changeLanguage(String newLanguageCode) {
     final newLocale = Locale(newLanguageCode);
@@ -14,8 +14,8 @@ class LocaleCubit extends HydratedCubit<Locale> {
   }
 
   @override
-  Locale fromJson(Map<String, dynamic> json) => json['value'] as Locale;
+  Locale fromJson(Map<String, dynamic> json) => Locale(json['value']as String) ;
 
   @override
-  Map<String, Locale> toJson(Locale state) => {'value': state};
+  Map<String, dynamic> toJson(Locale state) => {'value': state.languageCode};
 }
