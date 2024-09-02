@@ -38,8 +38,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/flag-spain.svg
   SvgGenImage get flagSpain => const SvgGenImage('assets/icons/flag-spain.svg');
 
-  /// File path: assets/icons/flag-tr.svg
-  SvgGenImage get flagTr => const SvgGenImage('assets/icons/flag-tr.svg');
+  /// File path: assets/icons/flag-turkey.svg
+  SvgGenImage get flagTurkey =>
+      const SvgGenImage('assets/icons/flag-turkey.svg');
 
   /// File path: assets/icons/flag-united-kingdom.svg
   SvgGenImage get flagUnitedKingdom =>
@@ -66,7 +67,7 @@ class $AssetsIconsGen {
         flagJapan,
         flagPortugal,
         flagSpain,
-        flagTr,
+        flagTurkey,
         flagUnitedKingdom,
         language,
         settings,
