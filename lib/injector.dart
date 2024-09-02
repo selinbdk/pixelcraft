@@ -5,9 +5,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
 import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
+import 'package:pixelcraft/core/cubits/current_flag/current_flag_cubit.dart';
+
 import 'package:pixelcraft/core/cubits/download_image/download_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/locale/locale_cubit.dart';
 import 'package:pixelcraft/core/cubits/regenerate_image/regenerate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/share_image/share_image_cubit.dart';
@@ -25,6 +28,7 @@ Future<void> initalize() async {
 
   final dioClient = DioClient();
 
+
   injector
     ..registerLazySingleton<Isar>(() => isar)
     ..registerLazySingleton<DioClient>(() => dioClient)
@@ -40,6 +44,8 @@ Future<void> initalize() async {
     ..registerLazySingleton(DownloadImageCubit.new)
     ..registerLazySingleton(ShareImageCubit.new)
     ..registerLazySingleton(BookMarksCubit.new)
+    ..registerLazySingleton(LocaleCubit.new)
+    ..registerLazySingleton(CurrentFlagCubit.new)
     ..registerLazySingleton(() => RegenerateImageCubit(injector<GenerationRepository>()))
     ..registerLazySingleton(() => GenerateImageCubit(injector<GenerationRepository>()));
 }
