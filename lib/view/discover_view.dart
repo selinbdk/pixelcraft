@@ -23,47 +23,127 @@ class DiscoverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: AppIconButton(
-          icon: Assets.icons.settings.svg(),
-          onPressed: () => showDialog<void>(
-            context: context,
-            builder: (context) => _DialogField(
-              onPressed: () {},
-            ),
+      //* Body
+      body: MultiBlocListener(
+        listeners: [
+          BlocListener<GetAllImageCubit, GetAllImageState>(
+            listener: (context, getAllImageState) async {
+              if (getAllImageState is GetAllImageLoading) {
+                await showDialog(
+                  context: context,
+                  builder: (context) => const LoadingDialog(),
+                  barrierDismissible: false,
+                );
+              } else if (getAllImageState is GetAllImageSuccess) {
+                context.router.popUntilRoot();
+              } else if (getAllImageState is GetAllImageFailure) {
+                context.router.popUntilRoot();
+                context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
+              }
+            },
           ),
-          //context.replaceRoute(const OnboardingRoute()),
-        ),
-        title: Text(
-          AppLocalizations.of(context).discoverTitleMessage,
-          style: context.appTextTheme.displayMedium?.copyWith(
-            color: ColorName.primaryLabel,
-            fontWeight: FontWeight.bold,
-            fontSize: 17.sp,
-          ),
-        ),
-        actions: [
-          AppIconButton(
-            icon: Assets.icons.add.svg(),
-            onPressed: () async {
-              await showModalBottomSheet<void>(
-                isScrollControlled: true,
-                backgroundColor: Colors.transparent,
-                barrierColor: Colors.transparent,
-                clipBehavior: Clip.hardEdge,
-                useSafeArea: true,
-                context: context,
-                builder: (context) => SizedBox(
-                  height: 0.75.sh,
-                  child: const _SlidingPanel(),
-                ),
-              );
+          BlocListener<RemoveImageCubit, RemoveImageState>(
+            listener: (context, state) async {
+              if (state is RemoveImageLoading) {
+                await showDialog(
+                  context: context,
+                  builder: (context) => const LoadingDialog(),
+                  barrierDismissible: false,
+                );
+              } else if (state is RemoveImageSuccess) {
+                context.router.popUntilRoot();
+                await context.read<GetAllImageCubit>().getAllImage();
+              } else if (state is RemoveImageFailure) {
+                context.router.popUntilRoot();
+                context.showErrorMessage(message: AppLocalizations.of(context).errorSnackbarMessage);
+              }
             },
           ),
         ],
+        child: BlocBuilder<GetAllImageCubit, GetAllImageState>(
+          builder: (context, state) {
+            if (state is! GetAllImageSuccess) {
+              return const SizedBox.shrink();
+            }
+
+            if (state.imageList.isEmpty) {
+              return Center(
+                child: Text(
+                  AppLocalizations.of(context).emptyDiscoverMessage,
+                  style: TextStyle(
+                    color: ColorName.primaryLabel,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.sp,
+                  ),
+                ),
+              );
+            }
+
+            return GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 16,
+                crossAxisSpacing: 8,
+              ),
+              itemCount: state.imageList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Stack(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        context.pushRoute(ResultRoute(collection: state.imageList[index]));
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(24),
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Hero(
+                            tag: Key(state.imageList[index].id.toString()),
+                            child: PrimaryImage.memory(
+                              base64String: state.imageList[index].base64,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        AppIconButton(
+                          onPressed: () => context.read<BookMarksCubit>().toggleBookmark(state.imageList[index]),
+                          icon: BlocBuilder<BookMarksCubit, List<ImageResponseCollection>>(
+                            builder: (context, bookmarkList) {
+                              final isSaved = bookmarkList.any(
+                                (element) => element.id == state.imageList[index].id,
+                              );
+                              if (isSaved == true) {
+                                return Assets.icons.filledBookmark.svg();
+                              } else {
+                                return Assets.icons.bookmark.svg();
+                              }
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        AppIconButton(
+                          onPressed: () async =>
+                              context.read<RemoveImageCubit>().deleteImage(state.imageList[index].id),
+                          icon: Assets.icons.close.svg(),
+                        ),
+                      ],
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+        ),
       ),
-      body: const Column(),
     );
   }
 }
