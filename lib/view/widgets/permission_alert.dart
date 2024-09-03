@@ -11,13 +11,13 @@ class PermissionAlert extends StatelessWidget {
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: ColorName.secondaryBackground,
-      title:  Text(
+      title: Text(
         AppLocalizations.of(context).alertDialogTitle,
         style: const TextStyle(
           color: ColorName.primaryLabel,
         ),
       ),
-      content:  Text(
+      content: Text(
         AppLocalizations.of(context).alertDialogContent,
         style: const TextStyle(
           color: ColorName.primaryLabel,
@@ -36,7 +36,6 @@ class PermissionAlert extends StatelessWidget {
           backgroundColor: ColorName.secondaryBackground,
           foregroundColor: ColorName.primaryLabel,
         ),
-
       ],
     );
   }

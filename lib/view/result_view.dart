@@ -23,7 +23,6 @@ import 'package:pixelcraft/l10n/l10.dart';
 import 'package:pixelcraft/view/widgets/permission_alert.dart';
 import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
 
-
 @RoutePage()
 class ResultView extends StatelessWidget {
   const ResultView({

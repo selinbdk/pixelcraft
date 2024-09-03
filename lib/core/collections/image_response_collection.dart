@@ -4,7 +4,7 @@ import 'package:isar/isar.dart';
 part 'image_response_collection.g.dart';
 
 @collection
-class ImageResponseCollection extends Equatable {
+class ImageResponseCollection {
   const ImageResponseCollection({
     required this.id,
     this.base64,
@@ -44,12 +44,4 @@ class ImageResponseCollection extends Equatable {
     };
   }
 
-  @override
-  List<Object?> get props => [
-        id,
-        base64,
-        prompt,
-        createdAt,
-        seed,
-      ];
 }
