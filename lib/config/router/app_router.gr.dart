@@ -28,9 +28,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     MasterRoute.name: (routeData) {
+      final args = routeData.argsAs<MasterRouteArgs>(
+          orElse: () => const MasterRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const MasterView(),
+        child: MasterView(key: args.key),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -82,16 +84,30 @@ class DiscoverRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MasterView]
-class MasterRoute extends PageRouteInfo<void> {
-  const MasterRoute({List<PageRouteInfo>? children})
-      : super(
+class MasterRoute extends PageRouteInfo<MasterRouteArgs> {
+  MasterRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           MasterRoute.name,
+          args: MasterRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'MasterRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<MasterRouteArgs> page = PageInfo<MasterRouteArgs>(name);
+}
+
+class MasterRouteArgs {
+  const MasterRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'MasterRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

@@ -1,35 +1,19 @@
-import 'dart:ui';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import 'package:pixelcraft/config/router/app_router.dart';
 import 'package:pixelcraft/core/collections/image_response_collection.dart';
-import 'package:pixelcraft/core/components/buttons/app_button.dart';
 import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
 import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
 import 'package:pixelcraft/core/components/image/primary_image.dart';
 import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
-import 'package:pixelcraft/core/cubits/add_image/add_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
-import 'package:pixelcraft/core/cubits/current_flag/current_flag_cubit.dart';
-
-import 'package:pixelcraft/core/cubits/generate_image/generate_image_cubit.dart';
 import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
-import 'package:pixelcraft/core/cubits/locale/locale_cubit.dart';
 import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
-import 'package:pixelcraft/core/theme/app_theme.dart';
 import 'package:pixelcraft/gen/assets.gen.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/widgets/prompt_text_field.dart';
-
-part 'widgets/dialog_field.dart';
-part 'widgets/discover_app_bar.dart';
-part 'widgets/sliding_panel.dart';
 
 @RoutePage()
 class DiscoverView extends StatelessWidget {
@@ -39,9 +23,6 @@ class DiscoverView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //* Appbar
-      appBar:  _DiscoverAppBar(),
-
       //* Body
       body: MultiBlocListener(
         listeners: [

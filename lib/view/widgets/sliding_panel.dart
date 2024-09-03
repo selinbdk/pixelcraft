@@ -1,4 +1,4 @@
-part of '../../view/discover_view.dart';
+part of '../../view/master_view.dart';
 
 class _SlidingPanel extends StatelessWidget {
   const _SlidingPanel();

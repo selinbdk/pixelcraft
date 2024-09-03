@@ -1,23 +1,15 @@
-part of '../../view/discover_view.dart';
+part of '../../view/master_view.dart';
 
-class _DiscoverAppBar extends StatelessWidget implements PreferredSizeWidget {
-  _DiscoverAppBar();
-  final List<SvgPicture> flags = [
-    Assets.icons.flagTurkey.svg(),
-    Assets.icons.flagUnitedKingdom.svg(),
-    Assets.icons.flagSpain.svg(),
-    Assets.icons.flagJapan.svg(),
-    Assets.icons.flagPortugal.svg(),
-    
-  ];
+class _MasterAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const _MasterAppBar(
+    this.title,
+    this.languageCodes,
+    this.flags,
+  );
 
-  final List<String> languageCodes = [
-    'en',
-    'es',
-    'ja',
-    'pt',
-    'tr',
-  ];
+  final List<SvgPicture> flags;
+  final List<String> languageCodes;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -28,34 +20,20 @@ class _DiscoverAppBar extends StatelessWidget implements PreferredSizeWidget {
             return AppBar(
               centerTitle: true,
               leading: AppIconButton(
-                icon: Assets.icons.language.svg(),
+                icon: flags[flagIndex],
                 onPressed: () {
                   context.read<CurrentFlagCubit>().toggleFlagIndex(languageCodes);
                   context.read<LocaleCubit>().changeLanguage(languageCodes[flagIndex]);
                 },
               ),
-              title: Row(
-                children: [
-                  AppIconButton(
-                    icon: flags[flagIndex],
-                    onPressed: () {
-                      return;
-                    },
-                  ),
-                  const Spacer(),
-                  Text(
-                    textAlign: TextAlign.center,
-                    AppLocalizations.of(context).discoverTitleMessage,
-                    style: context.appTextTheme.displayMedium?.copyWith(
-                      color: ColorName.primaryLabel,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 17.sp,
-                    ),
-                  ),
-                  const Spacer(
-                    flex: 2,
-                  ),
-                ],
+              title: Text(
+                textAlign: TextAlign.center,
+                title,
+                style: context.appTextTheme.displayMedium?.copyWith(
+                  color: ColorName.primaryLabel,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17.sp,
+                ),
               ),
               actions: [
                 AppIconButton(
