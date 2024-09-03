@@ -1,6 +1,7 @@
 //import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pixelcraft/config/gen/colors.gen.dart';
 //import 'package:pixelcraft/config/router/app_router.dart';
 
 class AppButton extends StatelessWidget {
@@ -24,6 +25,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final style = ElevatedButton.styleFrom(
+      disabledBackgroundColor: ColorName.secondaryBackground,
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
       fixedSize: Size(1.sw, 42.dm),
@@ -39,6 +41,7 @@ class AppButton extends StatelessWidget {
         style: style,
         label: Text(
           messages,
+          style: const TextStyle(color: ColorName.primaryLabel),
         ),
         icon: icon,
       );

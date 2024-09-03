@@ -1,6 +1,27 @@
 {
-  "@@locale":"es"
+  "@@locale": "es",
+  "onboardingTitleMessage": "Genera cualquier cosa que tengas en mente ahora",
+  "onboardingContentMessage": "Una IA desarrollada para ayudarte a generar lo que tienes en mente en una bonita imagen",
+  "letsGoButtonTitle": "¡Vamos!",
+  "discoverTitleMessage": "Descubre",
+  "promptTitle": "Aviso",
+  "promptContentMessage": "Escribe lo que imaginas y deja que [App] lo visualice.",
+  "generateButtonTitle": "Generar",
+  "resultTitle": "Nombre de la imagen",
+  "regenerateButtonTitle": "Volver a generar",
+  "downloadButtonTitle": "Descargar",
+  "successDialogTitle": "Imagen generada con éxito",
+  "successDialogContent": "¿Quieres verla?",
+  "showButtonTitle": "¡Muéstramela!",
+  "errorSnackbarMessage": "¡Algo salió mal!",
+  "successSnackbarDownloadMessage": "¡Imagen descargada correctamente!",
+  "emptyDiscoverMessage": "No hay imágenes",
+  "alertDialogTitle": "¡Permiso denegado!",
+  "alertDialogContent": "Comprueba tu configuración",
+  "alertDialogCancel": "Cancelar",
+  "alertDialogCheck": "Comprobar",
+  "destinationHome": "Inicio",
+  "destinationBookMarks": "Marcadores",
+  "successSnackbarSavedMessage": "¡Imagen guardada correctamente!",
+  "bookmarksViewMessage": "No hay imágenes guardadas"
 }
-
-
-

@@ -1,23 +1,25 @@
-import 'dart:ui';
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pixelcraft/config/gen/assets.gen.dart';
-import 'package:pixelcraft/core/components/app_button.dart';
-import 'package:pixelcraft/core/components/app_icon_button.dart';
-import 'package:pixelcraft/core/theme/app_theme.dart';
+import 'package:pixelcraft/config/router/app_router.dart';
+import 'package:pixelcraft/core/collections/image_response_collection.dart';
+import 'package:pixelcraft/core/components/buttons/app_icon_button.dart';
+import 'package:pixelcraft/core/components/dialog/loading_dialog.dart';
+import 'package:pixelcraft/core/components/image/primary_image.dart';
+import 'package:pixelcraft/core/components/snackbar/snack_bar_extension.dart';
+import 'package:pixelcraft/core/cubits/book_marks/book_marks_cubit.dart';
+import 'package:pixelcraft/core/cubits/get_all_image/get_all_image_cubit.dart';
+import 'package:pixelcraft/core/cubits/remove_image/remove_image_cubit.dart';
+import 'package:pixelcraft/gen/assets.gen.dart';
 import 'package:pixelcraft/gen/colors.gen.dart';
 import 'package:pixelcraft/l10n/l10.dart';
-import 'package:pixelcraft/view/widgets/prompt_field.dart';
-
-part 'widgets/dialog_field.dart';
-part 'widgets/sliding_panel.dart';
 
 @RoutePage()
 class DiscoverView extends StatelessWidget {
-  const DiscoverView({super.key});
-
+  const DiscoverView({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +55,7 @@ class DiscoverView extends StatelessWidget {
                 useSafeArea: true,
                 context: context,
                 builder: (context) => SizedBox(
-                  height: 0.55.sh,
+                  height: 0.75.sh,
                   child: const _SlidingPanel(),
                 ),
               );
@@ -61,17 +63,7 @@ class DiscoverView extends StatelessWidget {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Image.network('https://picsum.photos/500/500/'),
-            Image.network('https://picsum.photos/500/500/'),
-            Image.network('https://picsum.photos/500/500/'),
-            Image.network('https://picsum.photos/500/500/'),
-            Image.network('https://picsum.photos/500/500/'),
-          ],
-        ),
-      ),
+      body: const Column(),
     );
   }
 }

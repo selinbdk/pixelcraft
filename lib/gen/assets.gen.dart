@@ -24,6 +24,31 @@ class $AssetsIconsGen {
   /// File path: assets/icons/close.svg
   SvgGenImage get close => const SvgGenImage('assets/icons/close.svg');
 
+  /// File path: assets/icons/filled_bookmark.svg
+  SvgGenImage get filledBookmark =>
+      const SvgGenImage('assets/icons/filled_bookmark.svg');
+
+  /// File path: assets/icons/flag-japan.svg
+  SvgGenImage get flagJapan => const SvgGenImage('assets/icons/flag-japan.svg');
+
+  /// File path: assets/icons/flag-portugal.svg
+  SvgGenImage get flagPortugal =>
+      const SvgGenImage('assets/icons/flag-portugal.svg');
+
+  /// File path: assets/icons/flag-spain.svg
+  SvgGenImage get flagSpain => const SvgGenImage('assets/icons/flag-spain.svg');
+
+  /// File path: assets/icons/flag-turkey.svg
+  SvgGenImage get flagTurkey =>
+      const SvgGenImage('assets/icons/flag-turkey.svg');
+
+  /// File path: assets/icons/flag-united-kingdom.svg
+  SvgGenImage get flagUnitedKingdom =>
+      const SvgGenImage('assets/icons/flag-united-kingdom.svg');
+
+  /// File path: assets/icons/language.svg
+  SvgGenImage get language => const SvgGenImage('assets/icons/language.svg');
+
   /// File path: assets/icons/settings.svg
   SvgGenImage get settings => const SvgGenImage('assets/icons/settings.svg');
 
@@ -34,25 +59,60 @@ class $AssetsIconsGen {
   SvgGenImage get wand => const SvgGenImage('assets/icons/wand.svg');
 
   /// List of all assets
-  List<SvgGenImage> get values => [add, bookmark, close, settings, share, wand];
+  List<SvgGenImage> get values => [
+        add,
+        bookmark,
+        close,
+        filledBookmark,
+        flagJapan,
+        flagPortugal,
+        flagSpain,
+        flagTurkey,
+        flagUnitedKingdom,
+        language,
+        settings,
+        share,
+        wand
+      ];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/discover_view.png
+  AssetGenImage get discoverView =>
+      const AssetGenImage('assets/images/discover_view.png');
+
+  /// File path: assets/images/onboarding_en.png
+  AssetGenImage get onboardingEn =>
+      const AssetGenImage('assets/images/onboarding_en.png');
+
   /// File path: assets/images/onboarding_image.png
   AssetGenImage get onboardingImage =>
       const AssetGenImage('assets/images/onboarding_image.png');
 
+  /// File path: assets/images/onboarding_ja.png
+  AssetGenImage get onboardingJa =>
+      const AssetGenImage('assets/images/onboarding_ja.png');
+
+  /// File path: assets/images/result;_view.png
+  AssetGenImage get resultView =>
+      const AssetGenImage('assets/images/result;_view.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [onboardingImage];
+  List<AssetGenImage> get values =>
+      [discoverView, onboardingEn, onboardingImage, onboardingJa, resultView];
 }
 
 class Assets {
   Assets._();
 
+  static const String aEnv = '.env';
   static const $AssetsIconsGen icons = $AssetsIconsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+
+  /// List of all assets
+  static List<String> get values => [aEnv];
 }
 
 class AssetGenImage {
