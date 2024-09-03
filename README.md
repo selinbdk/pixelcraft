@@ -23,6 +23,10 @@ PixelCraft is an AI application that allows you to generate what's in your mind 
 - Localization
 
 ## Screenshots
+<img width="200" alt="onboarding_en" src="https://github.com/user-attachments/assets/de576f50-36a1-4231-b70b-42c2ecbd5be9">
+<img width="200" alt="onboarding_ja" src="https://github.com/user-attachments/assets/1ab15e51-938f-4216-92af-9255db42a6df">
+<img width="200" alt="discover_view" src="https://github.com/user-attachments/assets/6cd45763-a964-4d3c-b157-5f4f348ef506">
+<img width="200" alt="result;_view" src="https://github.com/user-attachments/assets/27312be6-9156-453c-bece-e19d03bd73e5">
 
 
 

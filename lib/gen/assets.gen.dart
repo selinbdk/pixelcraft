@@ -79,12 +79,29 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/discover_view.png
+  AssetGenImage get discoverView =>
+      const AssetGenImage('assets/images/discover_view.png');
+
+  /// File path: assets/images/onboarding_en.png
+  AssetGenImage get onboardingEn =>
+      const AssetGenImage('assets/images/onboarding_en.png');
+
   /// File path: assets/images/onboarding_image.png
   AssetGenImage get onboardingImage =>
       const AssetGenImage('assets/images/onboarding_image.png');
 
+  /// File path: assets/images/onboarding_ja.png
+  AssetGenImage get onboardingJa =>
+      const AssetGenImage('assets/images/onboarding_ja.png');
+
+  /// File path: assets/images/result;_view.png
+  AssetGenImage get resultView =>
+      const AssetGenImage('assets/images/result;_view.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [onboardingImage];
+  List<AssetGenImage> get values =>
+      [discoverView, onboardingEn, onboardingImage, onboardingJa, resultView];
 }
 
 class Assets {
